@@ -237,6 +237,17 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
 .hre-val { font-family:var(--font-d); font-size:36px; font-weight:300; color:var(--gold); line-height:1; }
 .hre-lbl { font-size:9px; letter-spacing:2.5px; text-transform:uppercase; color:var(--muted); }
 
+/* Pills settori — identici all'index */
+.hero-pills { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.hero-pill {
+  font-size:10px; letter-spacing:2px; text-transform:uppercase;
+  color:var(--muted); padding:5px 14px; border:1px solid var(--border2);
+  transition:border-color .25s, color .25s;
+}
+.hero-pill:hover { border-color:var(--gold); color:var(--gold); }
+.hero-pill.active { border-color:var(--gold); color:var(--gold); }
+.pill-sep { color:var(--border2); font-size:16px; }
+
 /* Card flottante destra */
 .hero-re-card {
   background:rgba(17,30,53,.72); backdrop-filter:blur(24px);
@@ -536,7 +547,7 @@ footer {
       </div>
       <div>
         <div class="nav-wordmark">FONTE</div>
-        <div class="nav-tagline">Real Estate &amp; Digital Experience</div>
+        <div class="nav-tagline">Digital Property Experience</div>
       </div>
     </a>
 
@@ -578,6 +589,14 @@ footer {
         <span class="badge-dot"></span>
         <!-- PERSONALIZZA: il testo del badge (es. mercato, città) -->
         <span class="badge-lbl">Milano · Real Estate</span>
+      </div>
+
+      <div class="hero-pills">
+        <span class="hero-pill active">Immobiliare</span>
+        <span class="pill-sep">·</span>
+        <span class="hero-pill">Digitale</span>
+        <span class="pill-sep">·</span>
+        <span class="hero-pill">Experience</span>
       </div>
 
       <!-- PERSONALIZZA: titolo principale hero -->
@@ -893,7 +912,7 @@ footer {
     </svg>
     <div>
       <div class="foot-wordmark">FONTE</div>
-      <div class="foot-sub">Real Estate &amp; Digital Experience</div>
+      <div class="foot-sub">Digital Property Experience</div>
     </div>
   </div>
 
