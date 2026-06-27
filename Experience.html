@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience — FONTE</title>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQ8JLY338M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DQ8JLY338M');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================
+   FONTE — Design Tokens (identici)
+   ========================================= */
+:root {
+  --navy:       #0d1628;
+  --navy2:      #111e35;
+  --navy3:      #162040;
+  --navy4:      #1c2a50;
+  --navy5:      #253460;
+  --gold:       #c9a84c;
+  --gold2:      #e2c97e;
+  --gold3:      #f0dfa0;
+  --gold-dark:  #8a6820;
+  --text:       #e8e4da;
+  --muted:      #7a8aaa;
+  --border:     #1e2e50;
+  --border2:    #253460;
+  --text-dark:  #1a1a1a;
+  --muted-dark: #666;
+  --font-d:     'Cormorant Garamond', Georgia, serif;
+  --font-b:     'Outfit', system-ui, sans-serif;
+  --px:         60px;
+  --ease:       cubic-bezier(.25,.46,.45,.94);
+}
+
+/* --- RESET --- */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--navy); color:var(--text); font-family:var(--font-b); overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+img { display:block; max-width:100%; }
+ul { list-style:none; }
+button, a { cursor:pointer; font-family:var(--font-b); border:none; background:none; color:inherit; text-decoration:none; }
+@media (prefers-reduced-motion:reduce) { *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; } }
+
+/* --- SCROLL REVEAL --- */
+.rev    { opacity:0; transform:translateY(36px);  transition:opacity .85s var(--ease), transform .85s var(--ease); }
+.rev-l  { opacity:0; transform:translateX(-48px); transition:opacity .85s var(--ease), transform .85s var(--ease); }
+.rev-r  { opacity:0; transform:translateX(48px);  transition:opacity .85s var(--ease), transform .85s var(--ease); }
+.rev-s  { opacity:0; transform:scale(.93);         transition:opacity .85s var(--ease), transform .85s var(--ease); }
+.rev.on, .rev-l.on, .rev-r.on, .rev-s.on { opacity:1; transform:none; }
+.d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s}
+.d4{transition-delay:.4s} .d5{transition-delay:.5s} .d6{transition-delay:.6s}
+
+/* --- BUTTONS --- */
+.btn-gold {
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 36px;
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold));
+  color:var(--navy); font-size:11px; font-weight:600;
+  letter-spacing:2.5px; text-transform:uppercase;
+  position:relative; overflow:hidden;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.btn-gold::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,var(--gold),var(--gold2)); opacity:0; transition:opacity .3s; }
+.btn-gold:hover  { transform:translateY(-2px); box-shadow:0 10px 36px rgba(201,168,76,.28); }
+.btn-gold:hover::after { opacity:1; }
+.btn-gold span   { position:relative; z-index:1; }
+
+.btn-outline {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:13px 28px; background:transparent;
+  color:var(--muted); font-size:11px; letter-spacing:2px; text-transform:uppercase;
+  border:1px solid var(--border2);
+  transition:border-color .25s, color .25s, transform .25s;
+}
+.btn-outline:hover { border-color:var(--gold); color:var(--gold); transform:translateY(-2px); }
+
+.btn-dark {
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 36px;
+  background:linear-gradient(135deg,#8a6820,#c9a84c);
+  color:#fff; font-size:11px; font-weight:600;
+  letter-spacing:2.5px; text-transform:uppercase;
+  position:relative; overflow:hidden;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.btn-dark::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,#c9a84c,#e2c97e); opacity:0; transition:opacity .3s; }
+.btn-dark:hover { transform:translateY(-2px); box-shadow:0 10px 36px rgba(0,0,0,.28); }
+.btn-dark span { position:relative; z-index:1; }
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+.navbar {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  background:rgba(13,22,40,.96); backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  transition:box-shadow .4s;
+}
+.navbar.scrolled { box-shadow:0 4px 48px rgba(0,0,0,.5); }
+.nav-inner {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px var(--px);
+  transition:padding .4s var(--ease);
+}
+.navbar.scrolled .nav-inner { padding-top:12px; padding-bottom:12px; }
+
+/* Brand */
+.nav-brand { display:flex; align-items:center; gap:14px; }
+.nav-logo-wrap { position:relative; width:40px; height:40px; }
+.nav-logo-img { width:40px; height:40px; border-radius:50%; object-fit:cover; transition:transform .4s var(--ease); }
+.nav-brand:hover .nav-logo-img { transform:rotate(8deg) scale(1.08); }
+.nav-logo-ring {
+  position:absolute; inset:-3px; border-radius:50%;
+  border:1px solid rgba(201,168,76,0); transition:border-color .3s, inset .3s;
+}
+.nav-brand:hover .nav-logo-ring { border-color:rgba(201,168,76,.4); inset:-6px; }
+.nav-wordmark { font-family:var(--font-d); font-size:19px; letter-spacing:5px; text-transform:uppercase; color:var(--gold); line-height:1; }
+.nav-tagline  { font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-top:3px; }
+
+/* Links */
+.nav-links { display:flex; gap:40px; }
+.nav-link {
+  font-size:10px; letter-spacing:2.5px; text-transform:uppercase;
+  color:var(--muted); position:relative; padding-bottom:3px; transition:color .25s;
+}
+.nav-link::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1px; background:var(--gold); transition:width .3s var(--ease); }
+.nav-link:hover, .nav-link.active { color:var(--text); }
+.nav-link:hover::after, .nav-link.active::after { width:100%; }
+
+/* CTA */
+.nav-cta {
+  display:flex; align-items:center; gap:8px;
+  padding:9px 24px; border:1px solid var(--gold-dark);
+  color:var(--gold); font-size:10px; letter-spacing:2px; text-transform:uppercase;
+  position:relative; overflow:hidden; transition:color .3s;
+}
+.nav-cta::before { content:''; position:absolute; inset:0; background:var(--gold); transform:translateX(-101%); transition:transform .35s var(--ease); }
+.nav-cta:hover { color:var(--navy); }
+.nav-cta:hover::before { transform:translateX(0); }
+.nav-cta span, .nav-cta svg { position:relative; z-index:1; }
+
+/* Hamburger */
+.nav-ham { display:none; flex-direction:column; gap:5px; padding:4px; }
+.nav-ham span { display:block; width:22px; height:1.5px; background:var(--muted); transition:transform .3s, opacity .3s; }
+.nav-ham.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+.nav-ham.open span:nth-child(2) { opacity:0; }
+.nav-ham.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile menu */
+.nav-mobile {
+  display:none; padding:16px var(--px) 24px;
+  border-top:1px solid var(--border); background:var(--navy2);
+}
+.nav-mobile.open { display:block; }
+.nav-mob-link {
+  display:block; padding:14px 0;
+  font-size:13px; letter-spacing:2px; text-transform:uppercase;
+  color:var(--muted); border-bottom:1px solid var(--border);
+  transition:color .2s, padding-left .2s;
+}
+.nav-mob-link:hover { color:var(--gold); padding-left:8px; }
+
+/* =========================================
+   HERO — Experience
+   ========================================= */
+.hero-exp {
+  position:relative;
+  min-height:100vh;
+  display:flex; align-items:center;
+  overflow:hidden;
+  padding-top:77px;
+}
+
+.hero-exp-bg {
+  position:absolute; inset:0; z-index:0;
+  background:linear-gradient(
+    135deg,
+    var(--navy4) 0%,
+    var(--navy3) 50%,
+    rgba(13,22,40,.8) 100%
+  );
+}
+
+.hero-exp-bg::before {
+  content:'';
+  position:absolute;
+  width:800px; height:800px;
+  top:-400px; right:-200px;
+  background:radial-gradient(circle, rgba(201,168,76,.05) 0%, transparent 70%);
+  border-radius:50%;
+  animation:drift 14s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0%, 100% { transform:translate(0, 0); }
+  50% { transform:translate(40px, -40px); }
+}
+
+.hero-exp-inner {
+  position:relative; z-index:1;
+  max-width:1280px; margin:0 auto;
+  padding:0 var(--px);
+  width:100%;
+  display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;
+}
+
+.hero-exp-left { display:flex; flex-direction:column; gap:28px; }
+
+.hero-exp-badge {
+  display:inline-flex; align-items:center; gap:10px;
+  width:fit-content;
+  padding:10px 20px;
+  background:rgba(201,168,76,.08);
+  border:1px solid rgba(201,168,76,.3);
+  border-radius:50px;
+  font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gold);
+}
+
+.hero-exp-title {
+  font-family:var(--font-d);
+  font-size:clamp(48px, 8vw, 84px);
+  line-height:1.15;
+  letter-spacing:-1px;
+  color:var(--text);
+  margin:0;
+}
+.hero-exp-title em {
+  display:block;
+  font-style:normal;
+  background:linear-gradient(90deg, var(--gold), var(--gold2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.hero-exp-subtitle {
+  font-size:16px;
+  line-height:1.6;
+  color:var(--muted);
+  max-width:480px;
+}
+
+.hero-exp-actions {
+  display:flex; gap:16px; flex-wrap:wrap; margin-top:8px;
+}
+
+.hero-exp-image {
+  position:relative;
+  aspect-ratio:1;
+  border-radius:12px;
+  overflow:hidden;
+  background:var(--navy3);
+  border:1px solid var(--border2);
+}
+.hero-exp-image img {
+  width:100%; height:100%; object-fit:cover;
+}
+.hero-exp-image::before {
+  content:'';
+  position:absolute; inset:0; z-index:10;
+  background:linear-gradient(135deg, rgba(201,168,76,.15) 0%, transparent 100%);
+  pointer-events:none;
+}
+
+/* =========================================
+   SEZIONE ESPERIENZE — WHITE BACKGROUND
+   ========================================= */
+.experiences-sec {
+  position:relative; z-index:1;
+  margin:120px 0 0 0;
+  padding:100px var(--px);
+  background:#ffffff;
+  color:var(--text-dark);
+}
+
+.exp-container {
+  max-width:1280px; margin:0 auto;
+}
+
+.exp-header {
+  text-align:center;
+  margin-bottom:80px;
+}
+
+.exp-eyebrow {
+  font-size:11px; letter-spacing:3px; text-transform:uppercase;
+  color:var(--gold); margin-bottom:12px;
+}
+
+.exp-title {
+  font-family:var(--font-d);
+  font-size:clamp(36px, 5vw, 56px);
+  line-height:1.2;
+  letter-spacing:-0.5px;
+  color:var(--text-dark);
+  margin:0 0 24px 0;
+}
+.exp-title em {
+  color:var(--gold);
+  font-style:normal;
+}
+
+.exp-subtitle {
+  font-size:15px; line-height:1.7; color:var(--muted-dark);
+  max-width:700px; margin:0 auto;
+}
+
+/* Griglia esperienze */
+.exp-grid {
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  gap:32px; margin-bottom:80px;
+}
+
+.exp-card {
+  position:relative;
+  border-radius:12px;
+  overflow:hidden;
+  background:#f9f9f9;
+  border:1px solid #e5e5e5;
+  transition:border-color .3s, transform .3s var(--ease), box-shadow .3s;
+}
+.exp-card:hover {
+  border-color:var(--gold);
+  transform:translateY(-8px);
+  box-shadow:0 16px 48px rgba(0,0,0,.12);
+}
+
+.exp-card-image {
+  position:relative;
+  width:100%;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  background:#e5e5e5;
+}
+.exp-card-image img {
+  width:100%; height:100%; object-fit:cover;
+  transition:transform .4s var(--ease);
+}
+.exp-card:hover .exp-card-image img {
+  transform:scale(1.08);
+}
+
+.exp-card-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.6) 100%);
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding:24px;
+  opacity:0;
+  transition:opacity .3s var(--ease);
+}
+.exp-card:hover .exp-card-overlay {
+  opacity:1;
+}
+
+.exp-overlay-text {
+  font-size:12px; letter-spacing:1px;
+  text-transform:uppercase; color:#fff;
+  margin-bottom:6px;
+}
+.exp-overlay-link {
+  font-size:11px; color:var(--gold);
+  text-decoration:underline;
+}
+
+.exp-card-content {
+  padding:28px 24px;
+}
+
+.exp-card-category {
+  font-size:10px; letter-spacing:2px; text-transform:uppercase;
+  color:var(--gold); margin-bottom:8px;
+}
+
+.exp-card-title {
+  font-family:var(--font-d);
+  font-size:22px; font-weight:600;
+  color:var(--text-dark);
+  margin:0 0 12px 0;
+}
+
+.exp-card-desc {
+  font-size:13px; line-height:1.6;
+  color:var(--muted-dark);
+  margin:0;
+}
+
+/* =========================================
+   CTA COLLABORAZIONE
+   ========================================= */
+.collab-cta {
+  position:relative;
+  max-width:900px; margin:80px auto 0;
+  padding:60px 48px;
+  background:linear-gradient(135deg, rgba(201,168,76,.1), rgba(201,168,76,.05));
+  border:2px solid var(--gold);
+  border-radius:12px;
+  text-align:center;
+}
+
+.collab-eyebrow {
+  font-size:11px; letter-spacing:2px; text-transform:uppercase;
+  color:var(--gold); margin-bottom:12px;
+}
+
+.collab-title {
+  font-family:var(--font-d);
+  font-size:36px; font-weight:600;
+  color:var(--text-dark);
+  margin:0 0 16px 0;
+}
+
+.collab-desc {
+  font-size:14px; line-height:1.7;
+  color:var(--muted-dark);
+  margin:0 0 32px 0;
+  max-width:600px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.collab-target {
+  font-size:12px;
+  color:var(--gold);
+  margin-bottom:28px;
+  letter-spacing:1px;
+}
+.collab-target strong { font-weight:600; }
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.footer {
+  position:relative; z-index:1;
+  max-width:100%;
+  padding:60px var(--px) 40px;
+  background:var(--navy2);
+  border-top:1px solid var(--border);
+  font-size:13px;
+  color:var(--text);
+}
+
+.footer-inner {
+  max-width:1280px; margin:0 auto;
+  display:grid; grid-template-columns:1.5fr 1fr 1fr 1.2fr; gap:48px;
+}
+
+.footer-col h4 {
+  font-family:var(--font-d);
+  font-size:13px; text-transform:uppercase; letter-spacing:2px;
+  color:var(--gold); margin-bottom:20px;
+}
+
+.footer-col p {
+  font-size:13px; line-height:1.7;
+  color:var(--muted); margin:0;
+}
+
+.footer-links {
+  display:flex; flex-direction:column; gap:12px;
+}
+.foot-link {
+  font-size:13px;
+  color:var(--muted); transition:color .2s;
+  border-bottom:1px solid transparent; padding-bottom:2px; transition:border-color .2s;
+}
+.foot-link:hover { color:var(--gold); border-bottom-color:var(--gold); }
+
+.footer-bottom {
+  max-width:1280px; margin:40px auto 0;
+  padding-top:24px; border-top:1px solid var(--border);
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:12px; color:var(--muted);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width:1024px) {
+  :root { --px:40px; }
+  .hero-exp-inner { grid-template-columns:1fr; gap:40px; }
+  .hero-exp-image { aspect-ratio:4/3; }
+  .footer-inner { grid-template-columns:1fr 1fr; gap:32px; }
+}
+
+@media (max-width:768px) {
+  :root { --px:20px; }
+  .nav-links, .nav-cta { display:none; }
+  .nav-ham { display:flex; }
+  .hero-exp {
+    min-height:auto;
+    padding-top:70px;
+    padding-bottom:40px;
+  }
+  .hero-exp-inner { grid-template-columns:1fr; gap:32px; }
+  .hero-exp-title { font-size:36px; }
+  .experiences-sec { padding:60px 20px; }
+  .exp-grid { grid-template-columns:1fr; gap:24px; }
+  .collab-cta { padding:40px 28px; }
+  .collab-title { font-size:24px; }
+  .footer-inner { grid-template-columns:1fr; gap:24px; }
+  .footer-bottom { flex-direction:column; gap:16px; text-align:center; }
+}
+
+@media (max-width:480px) {
+  .hero-exp-actions { flex-direction:column; }
+  .btn-gold, .btn-outline, .btn-dark { width:100%; justify-content:center; }
+}
+</style>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><circle cx='24' cy='24' r='23' fill='%230d1628' stroke='%23c9a84c' stroke-width='2'/><text x='24' y='32' font-family='serif' font-size='24' font-weight='bold' fill='%23c9a84c' text-anchor='middle'>F</text></svg>">
+</head>
+
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-logo-wrap">
+        <img src="data:image/png;base64,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" alt="Logo FONTE" class="nav-logo-img">
+        <div class="nav-logo-ring"></div>
+      </div>
+      <div>
+        <div class="nav-wordmark">FONTE</div>
+        <div class="nav-tagline">Real Estate & Digital</div>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html"        class="nav-link">Home</a></li>
+      <li><a href="digital.html"      class="nav-link">Digital</a></li>
+      <li><a href="property.html"     class="nav-link">Property</a></li>
+      <li><a href="experience.html"   class="nav-link active">Experience</a></li>
+      <li><a href="index.html#contatti" class="nav-link">Contatti</a></li>
+    </ul>
+
+    <a href="#collab" class="nav-cta">
+      <span>Collaboriamo?</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+
+    <button class="nav-ham" id="navHam">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <div class="nav-mobile" id="navMobile">
+    <a href="index.html"       class="nav-mob-link">Home</a>
+    <a href="digital.html"     class="nav-mob-link">Digital</a>
+    <a href="property.html"    class="nav-mob-link">Property</a>
+    <a href="experience.html"  class="nav-mob-link">Experience</a>
+    <a href="index.html#contatti" class="nav-mob-link">Contatti</a>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero-exp">
+  <div class="hero-exp-bg"></div>
+  
+  <div class="hero-exp-inner">
+    <div class="hero-exp-left">
+      <div class="hero-exp-badge rev">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px; height:14px;">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+        </svg>
+        Esperienze Curate
+      </div>
+
+      <h1 class="hero-exp-title rev d1">
+        Scopri Milano<br><em>in modo nuovo</em>
+      </h1>
+
+      <p class="hero-exp-subtitle rev d2">
+        Tour guidati, cene esclusive, esperienze autentiche. Collaborazioni con bar, ristoranti e agenzie. Disponibile su Airbnb e GetYourGuide.
+      </p>
+
+      <div class="hero-exp-actions rev d3">
+        <a href="#esperienze" class="btn-gold">
+          <span>Vedi le esperienze</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="#collab" class="btn-outline">Proponi una collaborazione</a>
+      </div>
+    </div>
+
+    <div class="hero-exp-image rev-r">
+      <!-- PERSONALIZZA: sostituisci con foto experience -->
+      <img src="https://images.unsplash.com/photo-1517457373614-b7152f800fd1?w=600&q=80" alt="Experience FONTE Milano">
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ESPERIENZE (WHITE SECTION) ===================== -->
+<section class="experiences-sec" id="esperienze">
+  <div class="exp-container">
+    <div class="exp-header">
+      <div class="exp-eyebrow rev">Le tue esperienze</div>
+      <h2 class="exp-title rev d1">
+        Cosa ti offro<br><em>oggi</em>
+      </h2>
+      <p class="exp-subtitle rev d2">
+        Selezionata, curata, esclusiva. Ogni esperienza racconta una storia diversa di Milano. Aggiungiamo nuovi tour e collaborazioni di continuo.
+      </p>
+    </div>
+
+    <!-- GRIGLIA ESPERIENZE — PERSONALIZZA QUI -->
+    <!-- Istruzioni: duplica il blocco .exp-card e modifica titolo, descrizione, categoria e immagine -->
+    <div class="exp-grid">
+
+      <!-- PERSONALIZZA: Esperienza 1 -->
+      <div class="exp-card rev d1">
+        <div class="exp-card-image">
+          <img src="https://images.unsplash.com/photo-1504674900827-f960adfc5296?w=500&q=80" alt="Tour Navigli Milano">
+          <div class="exp-card-overlay">
+            <div class="exp-overlay-text">Disponibile su</div>
+            <div style="display:flex; gap:12px;">
+              <a href="#" class="exp-overlay-link">Airbnb</a>
+              <a href="#" class="exp-overlay-link">GetYourGuide</a>
+            </div>
+          </div>
+        </div>
+        <div class="exp-card-content">
+          <div class="exp-card-category">🚶 Tour Guidato</div>
+          <h3 class="exp-card-title">Navigli dopo Tramonto</h3>
+          <p class="exp-card-desc">
+            Scopri i Navigli milanesi al crepuscolo. Passeggiata tra storia, architettura e aperitivi nei bar più esclusivi. 2 ore, massimo 10 persone.
+          </p>
+        </div>
+      </div>
+
+      <!-- PERSONALIZZA: Esperienza 2 -->
+      <div class="exp-card rev d2">
+        <div class="exp-card-image">
+          <img src="https://images.unsplash.com/photo-1504674900827-f960adfc5296?w=500&q=80" alt="Cena Secreta Milano">
+          <div class="exp-card-overlay">
+            <div class="exp-overlay-text">Disponibile su</div>
+            <div style="display:flex; gap:12px;">
+              <a href="#" class="exp-overlay-link">Airbnb</a>
+              <a href="#" class="exp-overlay-link">GetYourGuide</a>
+            </div>
+          </div>
+        </div>
+        <div class="exp-card-content">
+          <div class="exp-card-category">🍽️ Cena Esclusiva</div>
+          <h3 class="exp-card-title">Cena Secreta Milano</h3>
+          <p class="exp-card-desc">
+            Cena in location segreta con chef stellato. 4 portate, vino selezionato, massimo 6 persone. Prenota almeno 1 settimana prima.
+          </p>
+        </div>
+      </div>
+
+      <!-- PERSONALIZZA: Esperienza 3 -->
+      <div class="exp-card rev d3">
+        <div class="exp-card-image">
+          <img src="https://images.unsplash.com/photo-1504674900827-f960adfc5296?w=500&q=80" alt="Food Tour Navigli">
+          <div class="exp-card-overlay">
+            <div class="exp-overlay-text">Disponibile su</div>
+            <div style="display:flex; gap:12px;">
+              <a href="#" class="exp-overlay-link">Airbnb</a>
+              <a href="#" class="exp-overlay-link">GetYourGuide</a>
+            </div>
+          </div>
+        </div>
+        <div class="exp-card-content">
+          <div class="exp-card-category">🥘 Food Tour</div>
+          <h3 class="exp-card-title">Food Tour Navigli</h3>
+          <p class="exp-card-desc">
+            Tour gastronomico nei Navigli. Assaggi di cucina milanese, vini locali, storie di food. Guida esperta, max 8 persone, 3 ore.
+          </p>
+        </div>
+      </div>
+
+      <!-- Aggiungi altre card come sopra -->
+
+    </div>
+
+    <!-- ===================== CTA COLLABORAZIONE ===================== -->
+    <div class="collab-cta rev" id="collab">
+      <div class="collab-eyebrow">Vogliamo collaborare?</div>
+      <h3 class="collab-title">Proponi una collaborazione</h3>
+      <p class="collab-desc">
+        Sei un bar, ristorante, agenzia di tour o realtà che vuole partner per esperienze? Contattami su WhatsApp e parliamo.
+      </p>
+      <div class="collab-target">
+        <strong>Target ideale:</strong> Bar • Ristoranti • Agenzie Tour • Guide Turistiche • Hotel • Realtà Culturali
+      </div>
+      <a href="https://wa.me/393473240075?text=Ciao%20Antonio!%20Voglio%20proporre%20una%20collaborazione%20per%20le%20experience.%20Ecco%20la%20mia%20idea:%20%0A%0A[Descrivi%20qui%20la%20tua%20proposta]"
+         target="_blank"
+         class="btn-dark">
+        <span>Scrivimi su WhatsApp</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.49 5.757L0 24l6.412-1.474A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.374l-.357-.212-3.704.851.874-3.607-.232-.371A9.818 9.818 0 1112 21.818z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>FONTE</h4>
+      <p>Web Design, Real Estate & Esperienze curate. Basato a Milano. Servizi in tutta Italia.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigazione</h4>
+      <div class="footer-links">
+        <a href="index.html"       class="foot-link">Home</a>
+        <a href="digital.html"     class="foot-link">Digital</a>
+        <a href="property.html"    class="foot-link">Property</a>
+        <a href="experience.html"  class="foot-link">Experience</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Contatti</h4>
+      <div class="footer-links">
+        <a href="https://wa.me/393473240075" target="_blank" class="foot-link">WhatsApp</a>
+        <a href="mailto:AntonioFonte0711@gmail.com" class="foot-link">Email</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Su</h4>
+      <div class="footer-links">
+        <a href="https://airbnb.com" target="_blank" class="foot-link">Airbnb</a>
+        <a href="https://getyourguide.com" target="_blank" class="foot-link">GetYourGuide</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>Crafted with care by Antonio FONTE</span>
+    <span>Milano, Italy</span>
+  </div>
+</footer>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+// Navbar Scroll Behavior
+const navbar = document.getElementById('navbar');
+const navHam = document.getElementById('navHam');
+const navMobile = document.getElementById('navMobile');
+
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Mobile Menu Toggle
+navHam.addEventListener('click', () => {
+  navHam.classList.toggle('open');
+  navMobile.classList.toggle('open');
+});
+
+// Chiudi menu mobile al click su un link
+document.querySelectorAll('.nav-mob-link').forEach(link => {
+  link.addEventListener('click', () => {
+    navHam.classList.remove('open');
+    navMobile.classList.remove('open');
+  });
+});
+
+// Scroll Reveal Animation
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -80px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('on');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.rev, .rev-l, .rev-r, .rev-s').forEach(el => {
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
