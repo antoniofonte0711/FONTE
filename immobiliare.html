@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Consulenza immobiliare a Milano. Gestione affitti brevi, valutazioni e investimenti. FONTE: consulente dedicato, risposta garantita entro 48 ore, zero conflitti di interesse.">
 <title>Real Estate — FONTE</title>
 
 <!-- Google tag (gtag.js) -->
@@ -111,12 +112,12 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
 }
 .nav-brand:hover .nav-logo-ring { border-color:rgba(201,168,76,.4); inset:-6px; }
 .nav-wordmark { font-family:var(--font-d); font-size:19px; letter-spacing:5px; text-transform:uppercase; color:var(--gold); line-height:1; }
-.nav-tagline  { font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-top:3px; }
+.nav-tagline  { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-top:3px; }
 
 /* Links */
 .nav-links { display:flex; gap:40px; }
 .nav-link {
-  font-size:10px; letter-spacing:2.5px; text-transform:uppercase;
+  font-size:12px; letter-spacing:2px; text-transform:uppercase;
   color:var(--muted); position:relative; padding-bottom:3px; transition:color .25s;
 }
 .nav-link::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1px; background:var(--gold); transition:width .3s var(--ease); }
@@ -127,7 +128,7 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
 .nav-cta {
   display:flex; align-items:center; gap:8px;
   padding:9px 24px; border:1px solid var(--gold-dark);
-  color:var(--gold); font-size:10px; letter-spacing:2px; text-transform:uppercase;
+  color:var(--gold); font-size:11px; letter-spacing:1.5px; text-transform:uppercase;
   position:relative; overflow:hidden; transition:color .3s;
 }
 .nav-cta::before { content:''; position:absolute; inset:0; background:var(--gold); transform:translateX(-101%); transition:transform .35s var(--ease); }
@@ -168,7 +169,6 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
 }
 
 /* Immagine di sfondo — sostituisci l'URL con la tua foto */
-/* PERSONALIZZA: cambia l'URL con una foto del tuo immobile o portafoglio */
 .hero-re-bg {
   position:absolute; inset:0; z-index:0;
   background:
@@ -206,7 +206,6 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
 @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.4)} 50%{box-shadow:0 0 0 6px rgba(201,168,76,0)} }
 .badge-lbl { font-size:10px; font-weight:600; color:var(--gold); letter-spacing:.06em; text-transform:uppercase; }
 
-/* PERSONALIZZA: il titolo principale della hero */
 .hero-re-title {
   font-family:var(--font-d);
   font-size:clamp(46px,5.5vw,78px);
@@ -215,7 +214,6 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
 }
 .hero-re-title em { font-style:italic; color:var(--gold); display:block; }
 
-/* PERSONALIZZA: il sottotitolo descrittivo */
 .hero-re-body {
   font-size:15px; color:var(--muted); line-height:1.85; max-width:480px;
 }
@@ -233,7 +231,6 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
   transition:background .3s;
 }
 .hre-stat:hover { background:rgba(28,42,80,.9); }
-/* PERSONALIZZA: modifica i valori numerici degli stat */
 .hre-val { font-family:var(--font-d); font-size:36px; font-weight:300; color:var(--gold); line-height:1; }
 .hre-lbl { font-size:9px; letter-spacing:2.5px; text-transform:uppercase; color:var(--muted); }
 
@@ -260,7 +257,6 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
   content:''; position:absolute; top:0; left:0; right:0; height:1px;
   background:linear-gradient(90deg,transparent,rgba(201,168,76,.5),transparent);
 }
-/* PERSONALIZZA: modifica i testi della card di presentazione */
 .hrc-title { font-family:var(--font-d); font-size:22px; font-weight:300; color:var(--text); margin-bottom:8px; }
 .hrc-sub   { font-size:12px; color:var(--muted); line-height:1.7; margin-bottom:28px; }
 .hrc-list  { display:flex; flex-direction:column; gap:14px; }
@@ -323,7 +319,6 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
 .svc-card:hover .svc-icon { border-color:var(--gold); background:rgba(201,168,76,.08); }
 .svc-icon svg { width:20px; height:20px; }
 
-/* PERSONALIZZA: titoli e descrizioni dei 4 servizi */
 .svc-name { font-family:var(--font-d); font-size:22px; font-weight:300; color:var(--text); transition:transform .3s; }
 .svc-card:hover .svc-name { transform:translateX(5px); }
 .svc-desc { font-size:12px; color:var(--muted); line-height:1.85; flex:1; }
@@ -348,7 +343,6 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
 
 /* Lato testo */
 .value-text { display:flex; flex-direction:column; gap:28px; }
-/* PERSONALIZZA: il testo della sezione "perché scegliere un consulente dedicato" */
 .value-quote {
   font-family:var(--font-d); font-size:clamp(22px,2.4vw,30px);
   font-style:italic; font-weight:300; line-height:1.55;
@@ -370,7 +364,6 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
 }
 .vp:hover .vp-num { color:var(--gold); }
 .vp-content { display:flex; flex-direction:column; gap:4px; }
-/* PERSONALIZZA: i tre punti di valore differenziante */
 .vp-title { font-size:13px; font-weight:500; color:var(--text); }
 .vp-desc  { font-size:12px; color:var(--muted); line-height:1.6; }
 
@@ -378,7 +371,6 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
 .value-img-wrap { position:relative; }
 .value-img {
   width:100%; aspect-ratio:4/5; object-fit:cover;
-  /* PERSONALIZZA: sostituisci con la tua immagine */
 }
 .value-img-caption {
   position:absolute; bottom:-1px; left:0; right:0;
@@ -387,7 +379,6 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
   padding:20px 24px;
   display:flex; justify-content:space-between; align-items:center;
 }
-/* PERSONALIZZA: la didascalia sotto l'immagine */
 .vic-label { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); }
 .vic-val   { font-family:var(--font-d); font-size:18px; font-weight:300; color:var(--gold); }
 
@@ -441,7 +432,6 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
   background:var(--navy2);
 }
 .step:hover .step-num { border-color:var(--gold); color:var(--gold); background:rgba(201,168,76,.06); }
-/* PERSONALIZZA: titoli e descrizioni dei 4 step del processo */
 .step-name { font-family:var(--font-d); font-size:18px; font-weight:300; color:var(--text); }
 .step-desc { font-size:11px; color:var(--muted); line-height:1.7; }
 
@@ -461,7 +451,6 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
   color:rgba(201,168,76,.025); white-space:nowrap; pointer-events:none;
 }
 .cta-eyebrow { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:16px; position:relative; z-index:1; }
-/* PERSONALIZZA: titolo e sottotitolo della CTA finale */
 .cta-title {
   font-family:var(--font-d); font-size:clamp(36px,5vw,62px); font-weight:300;
   line-height:1.1; color:var(--text); margin-bottom:16px;
@@ -516,7 +505,7 @@ footer {
   .nav-links, .nav-cta { display:none; }
   .nav-ham { display:flex; }
   .hero-re-inner { grid-template-columns:1fr; }
-  .hero-re-card { display:none; } /* nascosta su mobile per spazio */
+  .hero-re-card { padding:24px 20px; margin-top:8px; }
   .services-grid { grid-template-columns:1fr 1fr; }
   .value-sec { grid-template-columns:1fr; gap:40px; }
   .process-track { grid-template-columns:1fr 1fr; }
@@ -527,6 +516,8 @@ footer {
   .services-grid { grid-template-columns:1fr; }
   .process-track { grid-template-columns:1fr; }
 }
+
+:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
 </style>
 </head>
 <body>
@@ -584,7 +575,6 @@ footer {
 
       <div class="hero-re-badge">
         <span class="badge-dot"></span>
-        <!-- PERSONALIZZA: il testo del badge (es. mercato, città) -->
         <span class="badge-lbl">Milano · Real Estate</span>
       </div>
 
@@ -596,13 +586,11 @@ footer {
         <span class="hero-pill">Experience</span>
       </div>
 
-      <!-- PERSONALIZZA: titolo principale hero -->
       <h1 class="hero-re-title rev">
         Il tuo immobile
         <em>nelle mani giuste.</em>
       </h1>
 
-      <!-- PERSONALIZZA: sottotitolo hero — descrivi il tuo approccio -->
       <p class="hero-re-body rev d1">
         Consulenza immobiliare diretta, senza intermediari inutili e senza sprechi di tempo.
         Gestione affitti brevi, valutazioni precise e strategie di investimento costruite intorno
@@ -614,7 +602,6 @@ footer {
         <a href="#servizi" class="btn-outline">I miei servizi</a>
       </div>
 
-      <!-- PERSONALIZZA: i tre numeri / stat chiave -->
       <div class="hero-re-stats rev d3">
         <div class="hre-stat">
           <span class="hre-val">100%</span>
@@ -633,12 +620,10 @@ footer {
 
     <!-- Colonna destra: card di presentazione -->
     <div class="hero-re-card rev-r d2">
-      <!-- PERSONALIZZA: titolo e descrizione della card -->
       <div class="hrc-title">Cosa otterrai</div>
       <p class="hrc-sub">Un consulente dedicato che conosce il mercato milanese e lavora esclusivamente per i tuoi interessi.</p>
 
       <ul class="hrc-list">
-        <!-- PERSONALIZZA: le 4 voci della lista -->
         <li class="hrc-item">
           <div class="hrc-icon">✓</div>
           <div class="hrc-text"><strong>Analisi gratuita</strong> — valutazione realistica del tuo immobile o opportunità di acquisto.</div>
@@ -682,7 +667,6 @@ footer {
 <section class="sec-base" id="servizi">
   <div class="sec-head">
     <div class="rev-l">
-      <!-- PERSONALIZZA: eyebrow e titolo sezione servizi -->
       <div class="sec-eyebrow">I miei servizi</div>
       <h2 class="sec-title">Quello che faccio<br><em>concretamente</em></h2>
     </div>
@@ -691,7 +675,6 @@ footer {
 
   <div class="services-grid">
 
-    <!-- CARD 1 — PERSONALIZZA: titolo, descrizione, CTA -->
     <div class="svc-card rev d1">
       <div class="svc-icon">
         <!-- Icona SVG: chiave / proprietà -->
@@ -710,7 +693,6 @@ footer {
       <div class="svc-arr">Scopri <span class="svc-arr-ico">→</span></div>
     </div>
 
-    <!-- CARD 2 — PERSONALIZZA -->
     <div class="svc-card rev d2">
       <div class="svc-icon">
         <!-- Icona SVG: case / immobile -->
@@ -727,7 +709,6 @@ footer {
       <div class="svc-arr">Scopri <span class="svc-arr-ico">→</span></div>
     </div>
 
-    <!-- CARD 3 — PERSONALIZZA -->
     <div class="svc-card rev d3">
       <div class="svc-icon">
         <!-- Icona SVG: grafico / valutazione -->
@@ -743,7 +724,6 @@ footer {
       <div class="svc-arr">Scopri <span class="svc-arr-ico">→</span></div>
     </div>
 
-    <!-- CARD 4 — PERSONALIZZA -->
     <div class="svc-card rev d4">
       <div class="svc-icon">
         <!-- Icona SVG: trend / investimento -->
@@ -770,12 +750,10 @@ footer {
 
   <!-- Colonna testo -->
   <div class="value-text rev-l">
-    <!-- PERSONALIZZA: la citazione ispiratrice -->
     <blockquote class="value-quote">
       "Una grande agenzia ti vende un immobile. Io costruisco una strategia intorno ai tuoi obiettivi."
     </blockquote>
 
-    <!-- PERSONALIZZA: il corpo del testo esplicativo -->
     <p class="value-body">
       Le grandi agenzie lavorano su volumi. Ogni trattativa è una pratica, ogni cliente
       è un numero di file. Io lavoro su pochi mandati selezionati, così ogni progetto
@@ -783,7 +761,6 @@ footer {
     </p>
 
     <div class="value-points">
-      <!-- PERSONALIZZA: i tre punti differenzianti -->
       <div class="vp rev d1">
         <span class="vp-num">01</span>
         <div class="vp-content">
@@ -809,7 +786,6 @@ footer {
   </div>
 
   <!-- Colonna immagine -->
-  <!-- PERSONALIZZA: sostituisci con la tua foto reale (es. di un immobile in gestione) -->
   <div class="value-img-wrap rev-r">
     <div class="value-deco"></div>
     <div class="value-deco-2"></div>
@@ -820,7 +796,6 @@ footer {
       loading="lazy"
     >
     <div class="value-img-caption">
-      <!-- PERSONALIZZA: didascalia immagine -->
       <span class="vic-label">Gestione attiva</span>
       <span class="vic-val">Milano, 2024</span>
     </div>
@@ -832,14 +807,12 @@ footer {
 <section class="sec-base process-sec">
   <div class="sec-head">
     <div class="rev-l">
-      <!-- PERSONALIZZA: titolo sezione processo -->
       <div class="sec-eyebrow">Come lavoro</div>
       <h2 class="sec-title">Il processo<br><em>in 4 passi</em></h2>
     </div>
   </div>
 
   <div class="process-track">
-    <!-- PERSONALIZZA: titoli e descrizioni dei 4 step -->
     <div class="step rev d1">
       <div class="step-num">01</div>
       <div class="step-name">Prima call</div>
@@ -848,7 +821,6 @@ footer {
     <div class="step rev d2">
       <div class="step-num">02</div>
       <div class="step-name">Analisi</div>
-      <p class="step-desc">Studio il mercato, valuto l'immobile e preparo una strategia personalizzata con dati concreti alla mano.</p>
     </div>
     <div class="step rev d3">
       <div class="step-num">03</div>
@@ -867,22 +839,18 @@ footer {
 <section class="cta-banner" id="cta">
   <div class="cta-wm">FONTE</div>
 
-  <!-- PERSONALIZZA: eyebrow della CTA -->
   <div class="cta-eyebrow rev">Inizia oggi</div>
 
-  <!-- PERSONALIZZA: titolo principale CTA -->
   <h2 class="cta-title rev d1">
     Richiedi una<br><em>valutazione gratuita</em>
   </h2>
 
-  <!-- PERSONALIZZA: sottotesto CTA -->
   <p class="cta-sub rev d2">
     Nessun impegno, nessun costo. Una call di 20 minuti per capire se e come posso aiutarti.
     Rispondo entro 48 ore.
   </p>
 
   <div class="cta-actions rev d3">
-    <!-- Il bottone apre WhatsApp — PERSONALIZZA il numero se necessario -->
     <a href="https://wa.me/393473240075?text=Ciao%20Antonio!%20Vorrei%20richiedere%20una%20valutazione%20gratuita%20del%20mio%20immobile."
        target="_blank"
        class="btn-gold">
@@ -892,7 +860,6 @@ footer {
         <path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.49 5.757L0 24l6.412-1.474A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.374l-.357-.212-3.704.851.874-3.607-.232-.371A9.818 9.818 0 1112 21.818z"/>
       </svg>
     </a>
-    <!-- PERSONALIZZA: email alternativa -->
     <a href="mailto:AntonioFonte0711@gmail.com?subject=Valutazione gratuita immobile" class="btn-outline">
       Scrivimi via Email
     </a>

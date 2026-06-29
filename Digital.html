@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Web design e sviluppo professionale a Milano. FONTE crea siti vetrina esclusivi, responsive e ottimizzati SEO. Consulenza gratuita di 30 minuti senza impegno.">
 <title>Digital — FONTE</title>
 
 <!-- Google tag (gtag.js) -->
@@ -111,12 +112,12 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
 }
 .nav-brand:hover .nav-logo-ring { border-color:rgba(201,168,76,.4); inset:-6px; }
 .nav-wordmark { font-family:var(--font-d); font-size:19px; letter-spacing:5px; text-transform:uppercase; color:var(--gold); line-height:1; }
-.nav-tagline  { font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-top:3px; }
+.nav-tagline  { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-top:3px; }
 
 /* Links */
 .nav-links { display:flex; gap:40px; }
 .nav-link {
-  font-size:10px; letter-spacing:2.5px; text-transform:uppercase;
+  font-size:12px; letter-spacing:2px; text-transform:uppercase;
   color:var(--muted); position:relative; padding-bottom:3px; transition:color .25s;
 }
 .nav-link::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1px; background:var(--gold); transition:width .3s var(--ease); }
@@ -127,7 +128,7 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
 .nav-cta {
   display:flex; align-items:center; gap:8px;
   padding:9px 24px; border:1px solid var(--gold-dark);
-  color:var(--gold); font-size:10px; letter-spacing:2px; text-transform:uppercase;
+  color:var(--gold); font-size:11px; letter-spacing:1.5px; text-transform:uppercase;
   position:relative; overflow:hidden; transition:color .3s;
 }
 .nav-cta::before { content:''; position:absolute; inset:0; background:var(--gold); transform:translateX(-101%); transition:transform .35s var(--ease); }
@@ -327,8 +328,6 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
 }
 
 .service-icon {
-  font-size:32px; margin-bottom:16px;
-  display:inline-block;
   width:56px; height:56px;
   display:flex; align-items:center; justify-content:center;
   background:rgba(201,168,76,.08);
@@ -612,6 +611,85 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
   .btn-gold, .btn-outline { width:100%; justify-content:center; }
   .cta-actions { flex-direction:column; }
 }
+
+/* =========================================
+   STATS
+   ========================================= */
+.stats-sec {
+  max-width:1280px; margin:100px auto 0;
+  padding:0 var(--px);
+}
+.stats-row {
+  display:grid; grid-template-columns:repeat(4, 1fr);
+  gap:1px; background:var(--border2);
+  border:1px solid var(--border2);
+  border-radius:4px; overflow:hidden;
+}
+.stat-item {
+  background:var(--navy2); padding:44px 28px; text-align:center;
+  transition:background .3s;
+}
+.stat-item:hover { background:var(--navy3); }
+.stat-val {
+  font-family:var(--font-d); font-size:52px; font-weight:300;
+  color:var(--gold); line-height:1; margin-bottom:8px;
+}
+.stat-lbl {
+  font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted);
+}
+
+/* =========================================
+   TESTIMONIALS
+   ========================================= */
+.tes-sec {
+  max-width:1280px; margin:100px auto 0;
+  padding:0 var(--px);
+}
+.tes-eyebrow {
+  font-size:11px; letter-spacing:3px; text-transform:uppercase;
+  color:var(--gold); margin-bottom:12px;
+}
+.tes-title {
+  font-family:var(--font-d); font-size:clamp(36px,5vw,56px);
+  line-height:1.2; color:var(--text); margin:0 0 60px 0;
+}
+.tes-title em { font-style:normal; color:var(--gold); }
+.tes-grid {
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+  gap:28px;
+}
+.tes-card {
+  padding:36px 32px;
+  background:rgba(22,32,64,.4);
+  border:1px solid var(--border2);
+  border-radius:8px;
+  display:flex; flex-direction:column; gap:16px;
+  transition:border-color .3s, background .3s, transform .3s var(--ease);
+}
+.tes-card:hover {
+  border-color:var(--gold); background:rgba(22,32,64,.7); transform:translateY(-4px);
+}
+.tes-stars { color:var(--gold); font-size:16px; letter-spacing:3px; }
+.tes-text {
+  font-size:15px; line-height:1.85; color:var(--text);
+  font-family:var(--font-d); font-style:italic; flex:1;
+}
+.tes-author { padding-top:16px; border-top:1px solid var(--border); }
+.tes-name { font-size:13px; font-weight:500; color:var(--text); }
+.tes-role { font-size:11px; color:var(--muted); letter-spacing:1px; margin-top:4px; }
+
+/* =========================================
+   ACCESSIBILITÀ
+   ========================================= */
+:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
+
+@media (max-width:768px) {
+  .stats-row { grid-template-columns:1fr 1fr; }
+  .tes-grid { grid-template-columns:1fr; }
+}
+@media (max-width:480px) {
+  .stats-row { grid-template-columns:1fr; }
+}
 </style>
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><circle cx='24' cy='24' r='23' fill='%230d1628' stroke='%23c9a84c' stroke-width='2'/><text x='24' y='32' font-family='serif' font-size='24' font-weight='bold' fill='%23c9a84c' text-anchor='middle'>F</text></svg>">
@@ -648,7 +726,7 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
       </svg>
     </a>
 
-    <button class="nav-ham" id="navHam">
+    <button class="nav-ham" id="navHam" aria-label="Apri menu" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
@@ -697,7 +775,6 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
     </div>
 
     <div class="hero-digital-image rev-r">
-      <!-- PERSONALIZZA: sostituisci con foto del tuo portfolio -->
       <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80" alt="Web Design Portfolio FONTE">
     </div>
   </div>
@@ -711,33 +788,41 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
       <h2 class="services-title">Tre servizi<br><em>completamente integrati</em></h2>
     </div>
     <p class="services-subtitle rev-l d1">
-      <!-- PERSONALIZZA: descrizione servizi -->
-      Consulenza strategica sul design, sviluppo tecnico avanzato, e gestione della presenza digitale. Tutto quello che serve per un sito che funziona.
+      Consulenza strategica sul design, sviluppo tecnico avanzato e gestione della presenza digitale. Tutto quello che serve per un sito che funziona davvero.
     </p>
   </div>
 
   <div class="services-grid">
-    <!-- PERSONALIZZA: servizio 1 -->
     <div class="service-card rev d1">
-      <div class="service-icon">🎨</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
+          <path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/>
+        </svg>
+      </div>
       <h3 class="service-title">Consulenza Design</h3>
       <p class="service-desc">
-        Ascolto il tuo vision e le tue esigenze. Insieme disegniamo il sito nuovo o rivisitiamo quello vecchio per miglioramenti strategici e visivi. Nessun template — solo design personalizzato.
+        Ascolto la tua visione e le tue esigenze. Insieme disegniamo il sito nuovo o rivisitiamo quello esistente per miglioramenti strategici e visivi. Nessun template — solo design personalizzato.
       </p>
     </div>
 
-    <!-- PERSONALIZZA: servizio 2 -->
     <div class="service-card rev d2">
-      <div class="service-icon">💻</div>
-      <h3 class="service-title">Web Design & Developer</h3>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
+          <rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4M9 9l2 2-2 2M13 13h2"/>
+        </svg>
+      </div>
+      <h3 class="service-title">Web Designer & Developer</h3>
       <p class="service-desc">
         Sviluppo front-end e back-end con competenze avanzate. Creo siti vetrina veloci, responsive, ottimizzati SEO e pronti per convertire. Codice pulito, performance al massimo.
       </p>
     </div>
 
-    <!-- PERSONALIZZA: servizio 3 -->
     <div class="service-card rev d3">
-      <div class="service-icon">⚡</div>
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+        </svg>
+      </div>
       <h3 class="service-title">AI & Programmazione</h3>
       <p class="service-desc">
         Integro intelligenza artificiale nei tuoi progetti. Automazioni, chatbot, analitiche avanzate. Combino tecnologia cutting-edge con praticità reale per il tuo business.
@@ -754,32 +839,28 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
   </div>
 
   <div class="process-track">
-    <!-- PERSONALIZZA: step 1 -->
     <div class="step rev d1">
       <div class="step-num">01</div>
       <div class="step-name">Consulenza</div>
       <p class="step-desc">Capisco il tuo brand, i tuoi obiettivi e il tuo pubblico. Call conoscitiva senza impegno né costi.</p>
     </div>
 
-    <!-- PERSONALIZZA: step 2 -->
     <div class="step rev d2">
       <div class="step-num">02</div>
       <div class="step-name">Design</div>
       <p class="step-desc">Creo wireframe e mockup del sito, esclusivamente per te. Approviamo insieme prima di iniziare lo sviluppo.</p>
     </div>
 
-    <!-- PERSONALIZZA: step 3 -->
     <div class="step rev d3">
       <div class="step-num">03</div>
       <div class="step-name">Sviluppo</div>
       <p class="step-desc">Codifico il design in HTML, CSS, JavaScript. Ottimizzazione SEO, performance, e responsività su tutti i device.</p>
     </div>
 
-    <!-- PERSONALIZZA: step 4 -->
     <div class="step rev d4">
       <div class="step-num">04</div>
       <div class="step-name">Lancio</div>
-      <p class="step-desc">Testing completo, fix finali, e pubblicazione. Ti do una mano con hosting e domain se serve.</p>
+      <p class="step-desc">Testing completo, fix finali e pubblicazione. Ti supporto con hosting e dominio se serve.</p>
     </div>
   </div>
 </section>
@@ -791,9 +872,12 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
   </div>
 
   <div class="features-grid">
-    <!-- PERSONALIZZA: aggiungi/rimuovi feature -->
     <div class="feature-item rev d1">
-      <div class="feature-icon">⚙️</div>
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+          <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      </div>
       <div class="feature-content">
         <h3>Siti Vetrina</h3>
         <p>Portfolio, agenzie, professionisti. Siti che raccontano la tua storia e portano clienti.</p>
@@ -801,7 +885,11 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
     </div>
 
     <div class="feature-item rev d2">
-      <div class="feature-icon">📱</div>
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+          <rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/>
+        </svg>
+      </div>
       <div class="feature-content">
         <h3>Responsive Design</h3>
         <p>Perfetto su desktop, tablet, smartphone. Una sola codebase, massima compatibilità.</p>
@@ -809,15 +897,23 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
     </div>
 
     <div class="feature-item rev d3">
-      <div class="feature-icon">🔍</div>
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </div>
       <div class="feature-content">
         <h3>SEO Ottimizzato</h3>
-        <p>Metadata, structured data, velocità. Il tuo sito ranking bene su Google.</p>
+        <p>Metadata, structured data, velocità di caricamento. Il tuo sito scala su Google.</p>
       </div>
     </div>
 
     <div class="feature-item rev d4">
-      <div class="feature-icon">⚡</div>
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+        </svg>
+      </div>
       <div class="feature-content">
         <h3>Performance</h3>
         <p>Pagine veloci, loading istantaneo, Core Web Vitals perfetti. L'utente non aspetta.</p>
@@ -825,7 +921,11 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
     </div>
 
     <div class="feature-item rev d5">
-      <div class="feature-icon">🎬</div>
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+          <circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>
+        </svg>
+      </div>
       <div class="feature-content">
         <h3>Animazioni Smooth</h3>
         <p>Scroll reveal, transizioni fluide, microinterazioni. Design che vive e respira.</p>
@@ -833,10 +933,68 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
     </div>
 
     <div class="feature-item rev d6">
-      <div class="feature-icon">🔐</div>
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
       <div class="feature-content">
         <h3>Sicurezza & Backup</h3>
-        <p>HTTPS, certificati, backup automatici. Il tuo sito al sicuro 24/7.</p>
+        <p>HTTPS, certificati SSL, backup automatici. Il tuo sito al sicuro 24/7.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STATS ===================== -->
+<section class="stats-sec">
+  <div class="stats-row">
+    <div class="stat-item rev d1">
+      <div class="stat-val">15+</div>
+      <div class="stat-lbl">Siti consegnati</div>
+    </div>
+    <div class="stat-item rev d2">
+      <div class="stat-val">100%</div>
+      <div class="stat-lbl">Clienti soddisfatti</div>
+    </div>
+    <div class="stat-item rev d3">
+      <div class="stat-val">&lt;3w</div>
+      <div class="stat-lbl">Consegna media</div>
+    </div>
+    <div class="stat-item rev d4">
+      <div class="stat-val">&lt;48h</div>
+      <div class="stat-lbl">Prima risposta</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALI ===================== -->
+<section class="tes-sec">
+  <div class="tes-eyebrow rev">Feedback</div>
+  <h2 class="tes-title rev d1">Cosa dicono<br><em>i clienti</em></h2>
+  <div class="tes-grid">
+    <div class="tes-card rev d1">
+      <div class="tes-stars">★★★★★</div>
+      <p class="tes-text">"Antonio ha trasformato la mia idea in un sito che rappresenta davvero il mio brand. Professionale, puntuale e con un occhio al design difficile da trovare altrove."</p>
+      <div class="tes-author">
+        <div class="tes-name">M. R.</div>
+        <div class="tes-role">Studio di Architettura, Milano</div>
+      </div>
+    </div>
+    <div class="tes-card rev d2">
+      <div class="tes-stars">★★★★★</div>
+      <p class="tes-text">"Pensavo di dover spendere migliaia di euro per un sito decente. Con FONTE ho ottenuto qualcosa di molto meglio, a un prezzo onesto e con assistenza vera."</p>
+      <div class="tes-author">
+        <div class="tes-name">G. M.</div>
+        <div class="tes-role">Consulente Marketing, Milano</div>
+      </div>
+    </div>
+    <div class="tes-card rev d3">
+      <div class="tes-stars">★★★★★</div>
+      <p class="tes-text">"Risposta immediata, nessun tecnicismo, risultato consegnato in due settimane. Esattamente quello che cercavo in un designer."</p>
+      <div class="tes-author">
+        <div class="tes-name">L. B.</div>
+        <div class="tes-role">Fotografo Professionista</div>
       </div>
     </div>
   </div>
@@ -844,21 +1002,17 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
 
 <!-- ===================== CTA FINALE ===================== -->
 <section class="cta-banner" id="cta">
-  <!-- PERSONALIZZA: eyebrow -->
   <div class="cta-eyebrow rev">Pronto?</div>
 
-  <!-- PERSONALIZZA: titolo CTA -->
   <h2 class="cta-title rev d1">
     Parliamo del<br><em>tuo progetto</em>
   </h2>
 
-  <!-- PERSONALIZZA: sottotesto CTA -->
   <p class="cta-sub rev d2">
     Una consulenza gratuita di 30 minuti. Capisco cosa ti serve, ti do una timeline, e decidi senza pressioni.
   </p>
 
   <div class="cta-actions rev d3">
-    <!-- PERSONALIZZA: numero WhatsApp se diverso -->
     <a href="https://wa.me/393473240075?text=Ciao%20Antonio!%20Vorrei%20discutere%20di%20un%20progetto%20web%20design."
        target="_blank"
        class="btn-gold">
@@ -900,7 +1054,7 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
     <div class="footer-col">
       <h4>Legal</h4>
       <p style="font-size:11px; color:var(--muted);">
-        © 2024 FONTE. Tutti i diritti riservati. Privacy Policy.
+        © 2025 FONTE. Tutti i diritti riservati.
       </p>
     </div>
   </div>
@@ -924,8 +1078,9 @@ window.addEventListener('scroll', () => {
 
 // Mobile Menu Toggle
 navHam.addEventListener('click', () => {
-  navHam.classList.toggle('open');
+  const open = navHam.classList.toggle('open');
   navMobile.classList.toggle('open');
+  navHam.setAttribute('aria-expanded', open);
 });
 
 // Chiudi menu mobile al click su un link

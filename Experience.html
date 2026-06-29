@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tour guidati, cene esclusive e food tour a Milano con FONTE. Esperienze curate e autentiche disponibili su Airbnb e GetYourGuide. Scopri Milano in modo nuovo.">
 <title>Experience — FONTE</title>
 
 <!-- Google tag (gtag.js) -->
@@ -126,12 +127,12 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
 }
 .nav-brand:hover .nav-logo-ring { border-color:rgba(201,168,76,.4); inset:-6px; }
 .nav-wordmark { font-family:var(--font-d); font-size:19px; letter-spacing:5px; text-transform:uppercase; color:var(--gold); line-height:1; }
-.nav-tagline  { font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-top:3px; }
+.nav-tagline  { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-top:3px; }
 
 /* Links */
 .nav-links { display:flex; gap:40px; }
 .nav-link {
-  font-size:10px; letter-spacing:2.5px; text-transform:uppercase;
+  font-size:12px; letter-spacing:2px; text-transform:uppercase;
   color:var(--muted); position:relative; padding-bottom:3px; transition:color .25s;
 }
 .nav-link::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1px; background:var(--gold); transition:width .3s var(--ease); }
@@ -142,7 +143,7 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
 .nav-cta {
   display:flex; align-items:center; gap:8px;
   padding:9px 24px; border:1px solid var(--gold-dark);
-  color:var(--gold); font-size:10px; letter-spacing:2px; text-transform:uppercase;
+  color:var(--gold); font-size:11px; letter-spacing:1.5px; text-transform:uppercase;
   position:relative; overflow:hidden; transition:color .3s;
 }
 .nav-cta::before { content:''; position:absolute; inset:0; background:var(--gold); transform:translateX(-101%); transition:transform .35s var(--ease); }
@@ -516,6 +517,8 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
   .hero-exp-actions { flex-direction:column; }
   .btn-gold, .btn-outline, .btn-dark { width:100%; justify-content:center; }
 }
+
+:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
 </style>
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><circle cx='24' cy='24' r='23' fill='%230d1628' stroke='%23c9a84c' stroke-width='2'/><text x='24' y='32' font-family='serif' font-size='24' font-weight='bold' fill='%23c9a84c' text-anchor='middle'>F</text></svg>">
@@ -552,7 +555,7 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
       </svg>
     </a>
 
-    <button class="nav-ham" id="navHam">
+    <button class="nav-ham" id="navHam" aria-label="Apri menu" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
@@ -601,7 +604,6 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
     </div>
 
     <div class="hero-exp-image rev-r">
-      <!-- PERSONALIZZA: sostituisci con foto experience -->
       <img src="https://images.unsplash.com/photo-1517457373614-b7152f800fd1?w=600&q=80" alt="Experience FONTE Milano">
     </div>
   </div>
@@ -620,19 +622,17 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
       </p>
     </div>
 
-    <!-- GRIGLIA ESPERIENZE — PERSONALIZZA QUI -->
     <!-- Istruzioni: duplica il blocco .exp-card e modifica titolo, descrizione, categoria e immagine -->
     <div class="exp-grid">
 
-      <!-- PERSONALIZZA: Esperienza 1 -->
       <div class="exp-card rev d1">
         <div class="exp-card-image">
-          <img src="https://images.unsplash.com/photo-1504674900827-f960adfc5296?w=500&q=80" alt="Tour Navigli Milano">
+          <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=500&q=80" alt="Aperitivo ai Navigli di Milano">
           <div class="exp-card-overlay">
             <div class="exp-overlay-text">Disponibile su</div>
             <div style="display:flex; gap:12px;">
-              <a href="#" class="exp-overlay-link">Airbnb</a>
-              <a href="#" class="exp-overlay-link">GetYourGuide</a>
+              <a href="https://www.airbnb.it/s/Milan--Italy/experiences" target="_blank" rel="noopener" class="exp-overlay-link">Airbnb</a>
+              <a href="https://www.getyourguide.com/milan-l139/" target="_blank" rel="noopener" class="exp-overlay-link">GetYourGuide</a>
             </div>
           </div>
         </div>
@@ -645,15 +645,14 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
         </div>
       </div>
 
-      <!-- PERSONALIZZA: Esperienza 2 -->
       <div class="exp-card rev d2">
         <div class="exp-card-image">
-          <img src="https://images.unsplash.com/photo-1504674900827-f960adfc5296?w=500&q=80" alt="Cena Secreta Milano">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&q=80" alt="Cena esclusiva a Milano">
           <div class="exp-card-overlay">
             <div class="exp-overlay-text">Disponibile su</div>
             <div style="display:flex; gap:12px;">
-              <a href="#" class="exp-overlay-link">Airbnb</a>
-              <a href="#" class="exp-overlay-link">GetYourGuide</a>
+              <a href="https://www.airbnb.it/s/Milan--Italy/experiences" target="_blank" rel="noopener" class="exp-overlay-link">Airbnb</a>
+              <a href="https://www.getyourguide.com/milan-l139/" target="_blank" rel="noopener" class="exp-overlay-link">GetYourGuide</a>
             </div>
           </div>
         </div>
@@ -666,15 +665,14 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
         </div>
       </div>
 
-      <!-- PERSONALIZZA: Esperienza 3 -->
       <div class="exp-card rev d3">
         <div class="exp-card-image">
-          <img src="https://images.unsplash.com/photo-1504674900827-f960adfc5296?w=500&q=80" alt="Food Tour Navigli">
+          <img src="https://images.unsplash.com/photo-1504674900827-f960adfc5296?w=500&q=80" alt="Food Tour ai Navigli di Milano">
           <div class="exp-card-overlay">
             <div class="exp-overlay-text">Disponibile su</div>
             <div style="display:flex; gap:12px;">
-              <a href="#" class="exp-overlay-link">Airbnb</a>
-              <a href="#" class="exp-overlay-link">GetYourGuide</a>
+              <a href="https://www.airbnb.it/s/Milan--Italy/experiences" target="_blank" rel="noopener" class="exp-overlay-link">Airbnb</a>
+              <a href="https://www.getyourguide.com/milan-l139/" target="_blank" rel="noopener" class="exp-overlay-link">GetYourGuide</a>
             </div>
           </div>
         </div>
@@ -686,8 +684,6 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
           </p>
         </div>
       </div>
-
-      <!-- Aggiungi altre card come sopra -->
 
     </div>
 
@@ -747,7 +743,7 @@ button, a { cursor:pointer; font-family:var(--font-b); border:none; background:n
   </div>
 
   <div class="footer-bottom">
-    <span>Crafted with care by Antonio FONTE</span>
+    <span>© 2025 FONTE — Antonio Fonte</span>
     <span>Milano, Italy</span>
   </div>
 </footer>
@@ -765,8 +761,9 @@ window.addEventListener('scroll', () => {
 
 // Mobile Menu Toggle
 navHam.addEventListener('click', () => {
-  navHam.classList.toggle('open');
+  const open = navHam.classList.toggle('open');
   navMobile.classList.toggle('open');
+  navHam.setAttribute('aria-expanded', open);
 });
 
 // Chiudi menu mobile al click su un link
