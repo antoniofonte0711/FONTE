@@ -1,10 +1,18 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Web design e sviluppo professionale a Milano. FONTE crea siti vetrina esclusivi, responsive e ottimizzati SEO. Consulenza gratuita di 30 minuti senza impegno.">
-<title>Digital — FONTE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital — Siti e web app su misura | FONTE DPE</title>
+<meta name="description" content="Siti e web app su misura a Milano, progettati e sviluppati da zero. Caso studio: SwimLine, la web app per squadre di nuoto. Prima call gratuita di 30 minuti.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="FONTE DPE">
+<meta property="og:title" content="Digital — FONTE DPE">
+<meta property="og:description" content="Siti e web app su misura, progettati e sviluppati da zero. Caso studio: SwimLine.">
+<meta property="og:url" content="https://antoniofonte0711.github.io/FONTE/Digital.html">
+<meta property="og:image" content="https://antoniofonte0711.github.io/FONTE/images/logo.jpg">
+<link rel="icon" type="image/jpeg" href="images/logo.jpg">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DQ8JLY338M"></script>
@@ -16,1100 +24,234 @@
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-/* =========================================
-   FONTE — Design Tokens (identici)
-   ========================================= */
-:root {
-  --navy:       #0d1628;
-  --navy2:      #111e35;
-  --navy3:      #162040;
-  --navy4:      #1c2a50;
-  --navy5:      #253460;
-  --gold:       #c9a84c;
-  --gold2:      #e2c97e;
-  --gold3:      #f0dfa0;
-  --gold-dark:  #8a6820;
-  --text:       #e8e4da;
-  --muted:      #7a8aaa;
-  --border:     #1e2e50;
-  --border2:    #253460;
-  --font-d:     'Fraunces', Georgia, serif;
-  --font-b:     'Manrope', system-ui, sans-serif;
-  --px:         60px;
-  --ease:       cubic-bezier(.25,.46,.45,.94);
-}
-
-/* --- RESET --- */
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body { background:var(--navy); color:var(--text); font-family:var(--font-b); overflow-x:hidden; -webkit-font-smoothing:antialiased; }
-img { display:block; max-width:100%; }
-ul { list-style:none; }
-button, a { cursor:pointer; font-family:var(--font-b); border:none; background:none; color:inherit; text-decoration:none; }
-@media (prefers-reduced-motion:reduce) { *, *::before, *::after { animation-duration:.01ms !important; transition-duration:.01ms !important; } }
-
-/* --- SCROLL REVEAL --- */
-.rev    { opacity:0; transform:translateY(36px);  transition:opacity .85s var(--ease), transform .85s var(--ease); }
-.rev-l  { opacity:0; transform:translateX(-48px); transition:opacity .85s var(--ease), transform .85s var(--ease); }
-.rev-r  { opacity:0; transform:translateX(48px);  transition:opacity .85s var(--ease), transform .85s var(--ease); }
-.rev-s  { opacity:0; transform:scale(.93);         transition:opacity .85s var(--ease), transform .85s var(--ease); }
-.rev.on, .rev-l.on, .rev-r.on, .rev-s.on { opacity:1; transform:none; }
-.d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s}
-.d4{transition-delay:.4s} .d5{transition-delay:.5s} .d6{transition-delay:.6s}
-
-/* --- BUTTONS --- */
-.btn-gold {
-  display:inline-flex; align-items:center; gap:10px;
-  padding:14px 36px;
-  background:linear-gradient(135deg,var(--gold-dark),var(--gold));
-  color:var(--navy); font-size:11px; font-weight:600;
-  letter-spacing:2.5px; text-transform:uppercase;
-  position:relative; overflow:hidden;
-  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
-}
-.btn-gold::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,var(--gold),var(--gold2)); opacity:0; transition:opacity .3s; }
-.btn-gold:hover  { transform:translateY(-2px); box-shadow:0 10px 36px rgba(201,168,76,.28); }
-.btn-gold:hover::after { opacity:1; }
-.btn-gold span   { position:relative; z-index:1; }
-
-.btn-outline {
-  display:inline-flex; align-items:center; gap:8px;
-  padding:13px 28px; background:transparent;
-  color:var(--muted); font-size:11px; letter-spacing:2px; text-transform:uppercase;
-  border:1px solid var(--border2);
-  transition:border-color .25s, color .25s, transform .25s;
-}
-.btn-outline:hover { border-color:var(--gold); color:var(--gold); transform:translateY(-2px); }
-
-/* =========================================
-   NAVBAR
-   ========================================= */
-.navbar {
-  position:fixed; top:0; left:0; right:0; z-index:200;
-  background:rgba(13,22,40,.96); backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
-  transition:box-shadow .4s;
-}
-.navbar.scrolled { box-shadow:0 4px 48px rgba(0,0,0,.5); }
-.nav-inner {
-  display:flex; align-items:center; justify-content:space-between;
-  padding:18px var(--px);
-  transition:padding .4s var(--ease);
-}
-.navbar.scrolled .nav-inner { padding-top:12px; padding-bottom:12px; }
-
-/* Brand */
-.nav-brand { display:flex; align-items:center; gap:14px; }
-.nav-logo-wrap { position:relative; width:40px; height:40px; }
-.nav-logo-img { width:40px; height:40px; border-radius:50%; object-fit:cover; transition:transform .4s var(--ease); }
-.nav-brand:hover .nav-logo-img { transform:rotate(8deg) scale(1.08); }
-.nav-logo-ring {
-  position:absolute; inset:-3px; border-radius:50%;
-  border:1px solid rgba(201,168,76,0); transition:border-color .3s, inset .3s;
-}
-.nav-brand:hover .nav-logo-ring { border-color:rgba(201,168,76,.4); inset:-6px; }
-.nav-wordmark { font-family:var(--font-d); font-size:19px; letter-spacing:5px; text-transform:uppercase; color:var(--gold); line-height:1; }
-.nav-tagline  { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-top:3px; }
-
-/* Links */
-.nav-links { display:flex; gap:40px; }
-.nav-link {
-  font-size:12px; letter-spacing:2px; text-transform:uppercase;
-  color:var(--muted); position:relative; padding-bottom:3px; transition:color .25s;
-}
-.nav-link::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1px; background:var(--gold); transition:width .3s var(--ease); }
-.nav-link:hover, .nav-link.active { color:var(--text); }
-.nav-link:hover::after, .nav-link.active::after { width:100%; }
-
-/* CTA */
-.nav-cta {
-  display:flex; align-items:center; gap:8px;
-  padding:9px 24px; border:1px solid var(--gold-dark);
-  color:var(--gold); font-size:11px; letter-spacing:1.5px; text-transform:uppercase;
-  position:relative; overflow:hidden; transition:color .3s;
-}
-.nav-cta::before { content:''; position:absolute; inset:0; background:var(--gold); transform:translateX(-101%); transition:transform .35s var(--ease); }
-.nav-cta:hover { color:var(--navy); }
-.nav-cta:hover::before { transform:translateX(0); }
-.nav-cta span, .nav-cta svg { position:relative; z-index:1; }
-
-/* Hamburger */
-.nav-ham { display:none; flex-direction:column; gap:5px; padding:4px; }
-.nav-ham span { display:block; width:22px; height:1.5px; background:var(--muted); transition:transform .3s, opacity .3s; }
-.nav-ham.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
-.nav-ham.open span:nth-child(2) { opacity:0; }
-.nav-ham.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
-
-/* Mobile menu */
-.nav-mobile {
-  display:none; padding:16px var(--px) 24px;
-  border-top:1px solid var(--border); background:var(--navy2);
-}
-.nav-mobile.open { display:block; }
-.nav-mob-link {
-  display:block; padding:14px 0;
-  font-size:13px; letter-spacing:2px; text-transform:uppercase;
-  color:var(--muted); border-bottom:1px solid var(--border);
-  transition:color .2s, padding-left .2s;
-}
-.nav-mob-link:hover { color:var(--gold); padding-left:8px; }
-
-/* =========================================
-   HERO — Digital
-   ========================================= */
-.hero-digital {
-  position:relative;
-  min-height:100vh;
-  display:flex; align-items:center;
-  overflow:hidden;
-  padding-top:77px;
-}
-
-.hero-digital-bg {
-  position:absolute; inset:0; z-index:0;
-  background:linear-gradient(
-    135deg,
-    var(--navy4) 0%,
-    var(--navy3) 50%,
-    rgba(13,22,40,.8) 100%
-  );
-}
-
-/* Elementi decorativi animati */
-.hero-digital-bg::before {
-  content:'';
-  position:absolute;
-  width:800px; height:800px;
-  top:-400px; right:-200px;
-  background:radial-gradient(circle, rgba(201,168,76,.05) 0%, transparent 70%);
-  border-radius:50%;
-  animation:drift 12s ease-in-out infinite;
-}
-
-.hero-digital-bg::after {
-  content:'';
-  position:absolute;
-  width:600px; height:600px;
-  bottom:-300px; left:-100px;
-  background:radial-gradient(circle, rgba(201,168,76,.03) 0%, transparent 70%);
-  border-radius:50%;
-  animation:drift 15s ease-in-out infinite reverse;
-}
-
-@keyframes drift {
-  0%, 100% { transform:translate(0, 0); }
-  50% { transform:translate(40px, -40px); }
-}
-
-.hero-digital-inner {
-  position:relative; z-index:1;
-  max-width:1280px; margin:0 auto;
-  padding:0 var(--px);
-  width:100%;
-  display:grid; grid-template-columns:1.1fr 0.9fr; gap:80px; align-items:center;
-}
-
-.hero-digital-left { display:flex; flex-direction:column; gap:32px; }
-
-.hero-digital-badge {
-  display:inline-flex; align-items:center; gap:10px;
-  width:fit-content;
-  padding:10px 20px;
-  background:rgba(201,168,76,.08);
-  border:1px solid rgba(201,168,76,.3);
-  border-radius:50px;
-  font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gold);
-}
-.hero-digital-badge svg { width:14px; height:14px; }
-
-.hero-digital-title {
-  font-family:var(--font-d);
-  font-size:clamp(48px, 8vw, 84px);
-  line-height:1.15;
-  letter-spacing:-1px;
-  color:var(--text);
-  margin:0;
-}
-.hero-digital-title em {
-  display:block;
-  font-style:normal;
-  background:linear-gradient(90deg, var(--gold), var(--gold2));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-
-.hero-digital-subtitle {
-  font-size:16px;
-  line-height:1.6;
-  color:var(--muted);
-  max-width:480px;
-}
-
-.hero-digital-actions {
-  display:flex; gap:16px; flex-wrap:wrap; margin-top:8px;
-}
-
-.hero-digital-image {
-  position:relative;
-  aspect-ratio:1;
-  border-radius:12px;
-  overflow:hidden;
-  background:var(--navy3);
-  border:1px solid var(--border2);
-}
-.hero-digital-image img {
-  width:100%; height:100%; object-fit:cover;
-}
-.hero-digital-image::before {
-  content:'';
-  position:absolute; inset:0; z-index:10;
-  background:linear-gradient(135deg, rgba(201,168,76,.15) 0%, transparent 100%);
-  pointer-events:none;
-}
-
-/* =========================================
-   SEZIONE SERVIZI
-   ========================================= */
-.services-sec {
-  position:relative; z-index:1;
-  max-width:1280px; margin:120px auto 0;
-  padding:0 var(--px);
-}
-
-.services-header {
-  margin-bottom:80px;
-}
-
-.services-eyebrow {
-  font-size:11px; letter-spacing:3px; text-transform:uppercase;
-  color:var(--gold); margin-bottom:12px;
-}
-
-.services-title {
-  font-family:var(--font-d);
-  font-size:clamp(36px, 5vw, 64px);
-  line-height:1.2;
-  letter-spacing:-0.5px;
-  color:var(--text);
-  margin:0 0 24px 0;
-}
-.services-title em {
-  display:inline;
-  font-style:normal;
-  color:var(--gold);
-}
-
-.services-subtitle {
-  font-size:15px; line-height:1.7; color:var(--muted);
-  max-width:600px;
-}
-
-.services-grid {
-  display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-  gap:32px; margin-bottom:120px;
-}
-
-.service-card {
-  position:relative;
-  padding:40px 32px;
-  background:rgba(22,32,64,.5);
-  border:1px solid var(--border2);
-  border-radius:8px;
-  transition:border-color .3s, background .3s, transform .3s var(--ease);
-}
-.service-card:hover {
-  border-color:var(--gold);
-  background:rgba(22,32,64,.8);
-  transform:translateY(-6px);
-}
-
-.service-icon {
-  width:56px; height:56px;
-  display:flex; align-items:center; justify-content:center;
-  background:rgba(201,168,76,.08);
-  border-radius:8px;
-  color:var(--gold);
-  margin-bottom:20px;
-}
-
-.service-title {
-  font-family:var(--font-d);
-  font-size:20px; font-weight:600;
-  color:var(--text); margin-bottom:12px;
-}
-
-.service-desc {
-  font-size:14px; line-height:1.7;
-  color:var(--muted);
-}
-
-/* =========================================
-   SEZIONE PROCESS
-   ========================================= */
-.process-sec {
-  position:relative;
-  max-width:1280px; margin:120px auto;
-  padding:80px var(--px);
-  background:linear-gradient(
-    135deg,
-    rgba(22,32,64,.4) 0%,
-    rgba(28,42,80,.2) 100%
-  );
-  border:1px solid var(--border2);
-  border-radius:12px;
-}
-
-.sec-eyebrow {
-  font-size:11px; letter-spacing:3px; text-transform:uppercase;
-  color:var(--gold); margin-bottom:12px;
-}
-
-.sec-title {
-  font-family:var(--font-d);
-  font-size:clamp(36px, 5vw, 56px);
-  line-height:1.2;
-  letter-spacing:-0.5px;
-  color:var(--text);
-  margin:0;
-}
-.sec-title em {
-  display:inline;
-  font-style:normal;
-  color:var(--gold);
-}
-
-.process-track {
-  display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-  gap:40px; margin-top:60px;
-}
-
-.step {
-  padding:32px;
-  background:rgba(13,22,40,.6);
-  border:1px solid var(--border);
-  border-radius:8px;
-  transition:border-color .3s, background .3s;
-}
-.step:hover {
-  border-color:var(--gold);
-  background:rgba(13,22,40,.9);
-}
-
-.step-num {
-  font-family:var(--font-d);
-  font-size:32px; font-weight:600;
-  color:var(--gold); margin-bottom:12px;
-}
-
-.step-name {
-  font-family:var(--font-d);
-  font-size:18px; font-weight:600;
-  color:var(--text); margin-bottom:12px;
-}
-
-.step-desc {
-  font-size:13px; line-height:1.7;
-  color:var(--muted); margin:0;
-}
-
-/* =========================================
-   SEZIONE FEATURES
-   ========================================= */
-.features-sec {
-  position:relative;
-  max-width:1280px; margin:120px auto;
-  padding:0 var(--px);
-}
-
-.features-header {
-  margin-bottom:80px;
-}
-
-.features-title {
-  font-family:var(--font-d);
-  font-size:clamp(36px, 5vw, 56px);
-  line-height:1.2;
-  color:var(--text);
-  margin:0 0 24px 0;
-}
-.features-title em {
-  color:var(--gold);
-  font-style:normal;
-}
-
-.features-grid {
-  display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-  gap:48px;
-}
-
-.feature-item {
-  display:grid; grid-template-columns:80px 1fr; gap:24px; align-items:start;
-}
-
-.feature-icon {
-  width:80px; height:80px;
-  display:flex; align-items:center; justify-content:center;
-  background:linear-gradient(135deg, rgba(201,168,76,.12), rgba(201,168,76,.05));
-  border:1px solid rgba(201,168,76,.2);
-  border-radius:8px;
-  font-size:32px;
-  color:var(--gold);
-}
-
-.feature-content h3 {
-  font-family:var(--font-d);
-  font-size:18px;
-  color:var(--text);
-  margin:0 0 8px 0;
-}
-
-.feature-content p {
-  font-size:13px; line-height:1.7;
-  color:var(--muted); margin:0;
-}
-
-/* =========================================
-   FOOTER & CTA
-   ========================================= */
-.cta-banner {
-  position:relative;
-  max-width:100%;
-  margin-top:140px;
-  padding:100px var(--px);
-  background:linear-gradient(
-    135deg,
-    var(--navy4) 0%,
-    var(--navy3) 100%
-  );
-  border-top:1px solid var(--border);
-  text-align:center;
-  overflow:hidden;
-}
-
-.cta-banner::before {
-  content:'FONTE';
-  position:absolute; top:20px; right:60px;
-  font-family:var(--font-d);
-  font-size:clamp(80px, 12vw, 200px);
-  font-weight:300;
-  color:rgba(201,168,76,.05);
-  letter-spacing:-2px;
-  line-height:1;
-  pointer-events:none;
-}
-
-.cta-eyebrow {
-  font-size:11px; letter-spacing:3px; text-transform:uppercase;
-  color:var(--gold); margin-bottom:12px;
-}
-
-.cta-title {
-  font-family:var(--font-d);
-  font-size:clamp(40px, 7vw, 72px);
-  line-height:1.2;
-  letter-spacing:-1px;
-  color:var(--text);
-  margin:0 0 24px 0;
-}
-.cta-title em {
-  font-style:normal;
-  color:var(--gold);
-}
-
-.cta-sub {
-  font-size:15px; line-height:1.8;
-  color:var(--muted);
-  max-width:600px; margin:0 auto 40px;
-}
-
-.cta-actions {
-  display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
-}
-
-/* =========================================
-   FOOTER
-   ========================================= */
-.footer {
-  position:relative; z-index:1;
-  max-width:100%;
-  padding:60px var(--px) 40px;
-  background:var(--navy2);
-  border-top:1px solid var(--border);
-  font-size:13px;
-}
-
-.footer-inner {
-  max-width:1280px; margin:0 auto;
-  display:grid; grid-template-columns:1.5fr 1fr 1fr 1.2fr; gap:48px;
-}
-
-.footer-col h4 {
-  font-family:var(--font-d);
-  font-size:13px; text-transform:uppercase; letter-spacing:2px;
-  color:var(--gold); margin-bottom:20px;
-}
-
-.footer-col p {
-  font-size:13px; line-height:1.7;
-  color:var(--muted); margin:0;
-}
-
-.footer-links {
-  display:flex; flex-direction:column; gap:12px;
-}
-.foot-link {
-  font-size:13px;
-  color:var(--muted); transition:color .2s;
-  border-bottom:1px solid transparent; padding-bottom:2px; transition:border-color .2s;
-}
-.foot-link:hover { color:var(--gold); border-bottom-color:var(--gold); }
-
-.footer-bottom {
-  max-width:1280px; margin:40px auto 0;
-  padding-top:24px; border-top:1px solid var(--border);
-  display:flex; justify-content:space-between; align-items:center;
-  font-size:12px; color:var(--muted);
-}
-
-/* =========================================
-   RESPONSIVE
-   ========================================= */
-@media (max-width:1024px) {
-  :root { --px:40px; }
-  .hero-digital-inner { grid-template-columns:1fr; gap:40px; }
-  .hero-digital-image { aspect-ratio:4/3; }
-  .footer-inner { grid-template-columns:1fr 1fr; gap:32px; }
-}
-
-@media (max-width:768px) {
-  :root { --px:20px; }
-  .nav-links, .nav-cta { display:none; }
-  .nav-ham { display:flex; }
-  .hero-digital {
-    min-height:auto;
-    padding-top:70px;
-    padding-bottom:40px;
-  }
-  .hero-digital-inner { grid-template-columns:1fr; gap:32px; }
-  .hero-digital-title { font-size:36px; }
-  .services-grid { grid-template-columns:1fr; gap:24px; }
-  .process-track { grid-template-columns:1fr; }
-  .features-grid { grid-template-columns:1fr; gap:32px; }
-  .feature-item { grid-template-columns:60px 1fr; gap:16px; }
-  .cta-banner { padding:60px 20px; }
-  .cta-banner::before { display:none; }
-  .footer-inner { grid-template-columns:1fr; gap:24px; }
-  .footer-bottom { flex-direction:column; gap:16px; text-align:center; }
-}
-
-@media (max-width:480px) {
-  .hero-digital-actions { flex-direction:column; }
-  .btn-gold, .btn-outline { width:100%; justify-content:center; }
-  .cta-actions { flex-direction:column; }
-}
-
-/* =========================================
-   STATS
-   ========================================= */
-.stats-sec {
-  max-width:1280px; margin:100px auto 0;
-  padding:0 var(--px);
-}
-.stats-row {
-  display:grid; grid-template-columns:repeat(4, 1fr);
-  gap:1px; background:var(--border2);
-  border:1px solid var(--border2);
-  border-radius:4px; overflow:hidden;
-}
-.stat-item {
-  background:var(--navy2); padding:44px 28px; text-align:center;
-  transition:background .3s;
-}
-.stat-item:hover { background:var(--navy3); }
-.stat-val {
-  font-family:var(--font-d); font-size:52px; font-weight:300;
-  color:var(--gold); line-height:1; margin-bottom:8px;
-}
-.stat-lbl {
-  font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted);
-}
-
-/* =========================================
-   TESTIMONIALS
-   ========================================= */
-.tes-sec {
-  max-width:1280px; margin:100px auto 0;
-  padding:0 var(--px);
-}
-.tes-eyebrow {
-  font-size:11px; letter-spacing:3px; text-transform:uppercase;
-  color:var(--gold); margin-bottom:12px;
-}
-.tes-title {
-  font-family:var(--font-d); font-size:clamp(36px,5vw,56px);
-  line-height:1.2; color:var(--text); margin:0 0 60px 0;
-}
-.tes-title em { font-style:normal; color:var(--gold); }
-.tes-grid {
-  display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
-  gap:28px;
-}
-.tes-card {
-  padding:36px 32px;
-  background:rgba(22,32,64,.4);
-  border:1px solid var(--border2);
-  border-radius:8px;
-  display:flex; flex-direction:column; gap:16px;
-  transition:border-color .3s, background .3s, transform .3s var(--ease);
-}
-.tes-card:hover {
-  border-color:var(--gold); background:rgba(22,32,64,.7); transform:translateY(-4px);
-}
-.tes-stars { color:var(--gold); font-size:16px; letter-spacing:3px; }
-.tes-text {
-  font-size:15px; line-height:1.85; color:var(--text);
-  font-family:var(--font-d); font-style:italic; flex:1;
-}
-.tes-author { padding-top:16px; border-top:1px solid var(--border); }
-.tes-name { font-size:13px; font-weight:500; color:var(--text); }
-.tes-role { font-size:11px; color:var(--muted); letter-spacing:1px; margin-top:4px; }
-
-/* =========================================
-   ACCESSIBILITÀ
-   ========================================= */
-:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
-
-@media (max-width:768px) {
-  .stats-row { grid-template-columns:1fr 1fr; }
-  .tes-grid { grid-template-columns:1fr; }
-}
-@media (max-width:480px) {
-  .stats-row { grid-template-columns:1fr; }
-}
-</style>
-
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><circle cx='24' cy='24' r='23' fill='%230d1628' stroke='%23c9a84c' stroke-width='2'/><text x='24' y='32' font-family='serif' font-size='24' font-weight='bold' fill='%23c9a84c' text-anchor='middle'>F</text></svg>">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Manrope:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
+<body class="dark-top">
 
-<body>
+<header class="header">
+  <div class="header__in">
+    <a href="index.html" class="brand" aria-label="FONTE DPE, home">
+      <img src="images/logo.jpg" alt="" class="brand__logo" width="36" height="36">
+      <span class="brand__name">FONTE</span><span class="brand__tag">DPE</span>
+    </a>
+    <nav class="nav" aria-label="Principale">
+      <a href="Digital.html" class="nav__link" aria-current="page">Digital</a>
+      <a href="immobiliare.html" class="nav__link">Property</a>
+      <a href="Experience.html" class="nav__link">Experience</a>
+      <a href="#contatti" class="btn nav__cta">Parliamone</a>
+    </nav>
+    <button class="menu-btn" aria-label="Apri menu" aria-expanded="false" aria-controls="sheet"><span></span><span></span></button>
+  </div>
+</header>
 
-<!-- ===================== NAVBAR ===================== -->
-<nav class="navbar" id="navbar">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-brand">
-      <div class="nav-logo-wrap">
-        <img src="Logo-removebg-preview.png" alt="Logo FONTE" class="nav-logo-img">
-        <div class="nav-logo-ring"></div>
-      </div>
+<div class="sheet" id="sheet" aria-hidden="true">
+  <nav class="sheet__links" aria-label="Menu mobile">
+    <a href="index.html">Home <small>00</small></a>
+    <a href="Digital.html">Digital <small>01</small></a>
+    <a href="immobiliare.html">Property <small>02</small></a>
+    <a href="Experience.html">Experience <small>03</small></a>
+  </nav>
+  <div class="sheet__foot">
+    <a href="#contatti" class="btn btn--light btn--solid">Parliamone</a>
+    <span class="label">Milano · Risposta entro 24 ore</span>
+  </div>
+</div>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero-full hero-full--stage">
+    <div class="wrap hero-stage">
       <div>
-        <div class="nav-wordmark">FONTE</div>
-        <div class="nav-tagline">Real Estate & Digital</div>
+        <div class="hero__top">
+          <span class="label">01 — Digital · Progettazione · Sviluppo · AI</span>
+        </div>
+        <h1 class="display reveal-lines">
+          <span class="line"><span>Siti e web app</span></span>
+          <span class="line"><span><em>su misura.</em></span></span>
+        </h1>
+        <div class="hero__foot">
+          <p class="lead">Il tuo sito è il tuo biglietto da visita, la tua app è il tuo strumento di lavoro. Li progetto e li sviluppo da zero, senza template, pensando a chi li userà ogni giorno.</p>
+          <div class="hero__actions">
+            <a href="#contatti" class="btn btn--light btn--solid">Richiedi la prima call
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#swimline" class="btn btn--light">Vedi il caso SwimLine</a>
+          </div>
+        </div>
       </div>
-    </a>
+      <div class="hero-stage__phone" data-reveal="2">
+        <div class="phone" style="width:100%" data-parallax="0.1"><img src="images/swimline-oggi.jpg" alt="SwimLine, la web app per squadre di nuoto, su smartphone" width="390" height="844"></div>
+      </div>
+    </div>
+  </section>
 
-    <ul class="nav-links">
-      <li><a href="index.html"        class="nav-link">Home</a></li>
-      <li><a href="Digital.html"      class="nav-link active">Digital</a></li>
-      <li><a href="immobiliare.html"     class="nav-link">Property</a></li>
-      <li><a href="Experience.html"   class="nav-link">Experience</a></li>
-      <li><a href="index.html#contatti" class="nav-link">Contatti</a></li>
-    </ul>
-
-    <a href="#cta" class="nav-cta">
-      <span>Progetto?</span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M5 12h14M12 5l7 7-7 7"/>
-      </svg>
-    </a>
-
-    <button class="nav-ham" id="navHam" aria-label="Apri menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <span>Siti vetrina</span><span>Web app</span><span>Design</span><span>Automazioni</span>
+      <span>Siti vetrina</span><span>Web app</span><span>Design</span><span>Automazioni</span>
+    </div>
   </div>
 
-  <div class="nav-mobile" id="navMobile">
-    <a href="index.html"       class="nav-mob-link">Home</a>
-    <a href="Digital.html"     class="nav-mob-link">Digital</a>
-    <a href="immobiliare.html"    class="nav-mob-link">Property</a>
-    <a href="Experience.html"  class="nav-mob-link">Experience</a>
-    <a href="index.html#contatti" class="nav-mob-link">Contatti</a>
-  </div>
-</nav>
-
-<!-- ===================== HERO ===================== -->
-<section class="hero-digital">
-  <div class="hero-digital-bg"></div>
-  
-  <div class="hero-digital-inner">
-    <div class="hero-digital-left">
-      <div class="hero-digital-badge rev">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
-        </svg>
-        Web Design & Development
+  <!-- SERVIZI -->
+  <section class="sec sec--photo" aria-labelledby="servizi-title">
+    <div class="sec__bg" data-parallax="0.12" aria-hidden="true"><img src="https://images.unsplash.com/photo-1520583457224-aee11bad5112?w=1800&q=70" alt="" loading="lazy"></div>
+    <div class="wrap">
+      <div class="sec__head">
+        <div>
+          <span class="label">Servizi</span>
+          <h2 class="h2" id="servizi-title" data-reveal>Dall'idea<br><em>al codice.</em></h2>
+        </div>
+        <p class="body" data-reveal="2">Puoi affidarmi tutto il progetto o solo una parte. In ogni caso parli con chi disegna e scrive il codice, non con un intermediario.</p>
       </div>
-
-      <h1 class="hero-digital-title rev d1">
-        Il tuo sito<br><em>è il tuo brand</em>
-      </h1>
-
-      <p class="hero-digital-subtitle rev d2">
-        Consulenza personalizzata, design esclusivo e sviluppo tecnico di qualità professionale. Dal concept alla pubblicazione, creo siti vetrina che convertono.
-      </p>
-
-      <div class="hero-digital-actions rev d3">
-        <a href="#cta" class="btn-gold">
-          <span>Inizia un progetto</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-        <a href="#servizi" class="btn-outline">Scopri i servizi</a>
+      <div class="grid3">
+        <div class="cell" data-reveal>
+          <span class="cell__num">01</span>
+          <h3 class="h3">Progettazione</h3>
+          <p>Partiamo dai tuoi obiettivi e da chi deve usare il sito. Disegno struttura e grafica, e le approviamo insieme prima di scrivere una riga di codice. Anche per rinnovare un sito che hai già.</p>
+        </div>
+        <div class="cell" data-reveal="2">
+          <span class="cell__num">02</span>
+          <h3 class="h3">Sviluppo</h3>
+          <p>Siti vetrina veloci e web app con login, database e area riservata. Funzionano su telefono, tablet e computer, e sono pensati per farsi trovare su Google.</p>
+        </div>
+        <div class="cell" data-reveal="3">
+          <span class="cell__num">03</span>
+          <h3 class="h3">AI e automazioni</h3>
+          <p>Porto l'intelligenza artificiale dove fa risparmiare tempo davvero: assistenti per rispondere ai clienti, automazioni per i lavori ripetitivi, dati più facili da leggere.</p>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="hero-digital-image rev-r">
-      <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80" alt="Web Design Portfolio FONTE">
-    </div>
-  </div>
-</section>
-
-<!-- ===================== SERVIZI ===================== -->
-<section class="services-sec" id="servizi">
-  <div class="services-header">
-    <div class="rev-l">
-      <div class="services-eyebrow">Cosa offro</div>
-      <h2 class="services-title">Tre servizi<br><em>completamente integrati</em></h2>
-    </div>
-    <p class="services-subtitle rev-l d1">
-      Consulenza strategica sul design, sviluppo tecnico avanzato e gestione della presenza digitale. Tutto quello che serve per un sito che funziona davvero.
-    </p>
-  </div>
-
-  <div class="services-grid">
-    <div class="service-card rev d1">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
-          <path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/>
-        </svg>
-      </div>
-      <h3 class="service-title">Consulenza Design</h3>
-      <p class="service-desc">
-        Ascolto la tua visione e le tue esigenze. Insieme disegniamo il sito nuovo o rivisitiamo quello esistente per miglioramenti strategici e visivi. Nessun template — solo design personalizzato.
-      </p>
-    </div>
-
-    <div class="service-card rev d2">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
-          <rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4M9 9l2 2-2 2M13 13h2"/>
-        </svg>
-      </div>
-      <h3 class="service-title">Web Designer & Developer</h3>
-      <p class="service-desc">
-        Sviluppo front-end e back-end con competenze avanzate. Creo siti vetrina veloci, responsive, ottimizzati SEO e pronti per convertire. Codice pulito, performance al massimo.
-      </p>
-    </div>
-
-    <div class="service-card rev d3">
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
-          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-        </svg>
-      </div>
-      <h3 class="service-title">AI & Programmazione</h3>
-      <p class="service-desc">
-        Integro intelligenza artificiale nei tuoi progetti. Automazioni, chatbot, analitiche avanzate. Combino tecnologia cutting-edge con praticità reale per il tuo business.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== PROCESSO ===================== -->
-<section class="process-sec" id="processo">
-  <div class="rev-l">
-    <div class="sec-eyebrow">Come lavoro</div>
-    <h2 class="sec-title">Il percorso<br><em>in 4 fasi</em></h2>
-  </div>
-
-  <div class="process-track">
-    <div class="step rev d1">
-      <div class="step-num">01</div>
-      <div class="step-name">Consulenza</div>
-      <p class="step-desc">Capisco il tuo brand, i tuoi obiettivi e il tuo pubblico. Call conoscitiva senza impegno né costi.</p>
-    </div>
-
-    <div class="step rev d2">
-      <div class="step-num">02</div>
-      <div class="step-name">Design</div>
-      <p class="step-desc">Creo wireframe e mockup del sito, esclusivamente per te. Approviamo insieme prima di iniziare lo sviluppo.</p>
-    </div>
-
-    <div class="step rev d3">
-      <div class="step-num">03</div>
-      <div class="step-name">Sviluppo</div>
-      <p class="step-desc">Codifico il design in HTML, CSS, JavaScript. Ottimizzazione SEO, performance, e responsività su tutti i device.</p>
-    </div>
-
-    <div class="step rev d4">
-      <div class="step-num">04</div>
-      <div class="step-name">Lancio</div>
-      <p class="step-desc">Testing completo, fix finali e pubblicazione. Ti supporto con hosting e dominio se serve.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== FEATURES ===================== -->
-<section class="features-sec">
-  <div class="features-header">
-    <h2 class="features-title">Quello che<br><em>migliora ogni sito</em></h2>
-  </div>
-
-  <div class="features-grid">
-    <div class="feature-item rev d1">
-      <div class="feature-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
-          <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-        </svg>
-      </div>
-      <div class="feature-content">
-        <h3>Siti Vetrina</h3>
-        <p>Portfolio, agenzie, professionisti. Siti che raccontano la tua storia e portano clienti.</p>
+  <!-- CASO STUDIO -->
+  <section class="sec sec--photo night" id="swimline" aria-labelledby="swimline-title">
+    <div class="sec__bg" data-parallax="0.12" aria-hidden="true"><img src="https://images.unsplash.com/photo-1669185694564-2da287319e13?w=1800&q=70" alt="" loading="lazy"></div>
+    <div class="wrap">
+      <div class="case" style="align-items:start">
+        <div>
+          <span class="label">Caso studio</span>
+          <h2 class="h2" id="swimline-title" style="margin:24px 0 28px" data-reveal>SwimLine,<br><em>la squadra in tasca.</em></h2>
+          <span class="status">Online</span>
+          <p class="lead" data-reveal="2">Le squadre di nuoto gestiscono allenamenti, tempi e presenze tra fogli di carta, chat e file Excel. SwimLine mette tutto in un'unica app, con una vista diversa per ogni persona della squadra.</p>
+          <dl class="case__meta">
+            <div><dt>Ruolo</dt><dd>Progetto e sviluppo</dd></div>
+            <div><dt>Tipo</dt><dd>Web app installabile</dd></div>
+            <div><dt>Tecnologia</dt><dd>React, Supabase, Vercel</dd></div>
+          </dl>
+          <a href="https://swim-line4.vercel.app" target="_blank" rel="noopener" class="btn btn--solid">Apri SwimLine
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+        </div>
+      <ul class="features" style="grid-template-columns:minmax(0,1fr)">
+        <li data-reveal><i>01</i><div><b>Un'app, cinque ruoli</b><span>Coach, atleta, genitore, ospite e amministratore vedono solo quello che serve a loro.</span></div></li>
+        <li data-reveal="2"><i>02</i><div><b>Piani di allenamento</b><span>Il coach pubblica la seduta del giorno, la difficoltà la calcola l'app.</span></div></li>
+        <li data-reveal><i>03</i><div><b>Tempi con parziali</b><span>Gli atleti segnano i loro tempi vasca per vasca e vedono subito i progressi.</span></div></li>
+        <li data-reveal="2"><i>04</i><div><b>Funziona anche offline</b><span>A bordo vasca il segnale manca spesso: i dati partono appena torna la rete.</span></div></li>
+        <li data-reveal><i>05</i><div><b>Gare, record e presenze</b><span>Tutta la storia della squadra in un posto solo, sempre aggiornata.</span></div></li>
+        <li data-reveal="2"><i>06</i><div><b>Punti e premi</b><span>Un sistema a livelli che premia la costanza e tiene alta la motivazione.</span></div></li>
+      </ul>
       </div>
     </div>
+  </section>
 
-    <div class="feature-item rev d2">
-      <div class="feature-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
-          <rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/>
-        </svg>
+  <!-- INCLUSO -->
+  <section class="sec sec--photo" aria-labelledby="incluso-title">
+    <div class="sec__bg" data-parallax="0.12" aria-hidden="true"><img src="https://images.unsplash.com/photo-1582133456304-2f5cb1c2afbb?w=1800&q=70" alt="" loading="lazy"></div>
+    <div class="wrap">
+      <div class="sec__head">
+        <div>
+          <span class="label">Sempre incluso</span>
+          <h2 class="h2" id="incluso-title" data-reveal>Le basi<br><em>fatte bene.</em></h2>
+        </div>
+        <p class="body" data-reveal="2">Ogni progetto parte da qui, a prescindere dal budget. Sono le cose che un visitatore non nota quando ci sono, e nota subito quando mancano.</p>
       </div>
-      <div class="feature-content">
-        <h3>Responsive Design</h3>
-        <p>Perfetto su desktop, tablet, smartphone. Una sola codebase, massima compatibilità.</p>
+      <div class="grid4">
+        <div class="cell" data-reveal><span class="cell__num">A</span><h3 class="h3">Su ogni schermo</h3><p>Perfetto su telefono, tablet e computer.</p></div>
+        <div class="cell" data-reveal="2"><span class="cell__num">B</span><h3 class="h3">Veloce</h3><p>Pagine leggere che si aprono subito, anche con poca rete.</p></div>
+        <div class="cell" data-reveal="3"><span class="cell__num">C</span><h3 class="h3">Trovabile</h3><p>Testi, titoli e struttura pensati per Google.</p></div>
+        <div class="cell" data-reveal="4"><span class="cell__num">D</span><h3 class="h3">Sicuro</h3><p>Connessione protetta e dati custoditi con cura.</p></div>
       </div>
     </div>
+  </section>
 
-    <div class="feature-item rev d3">
-      <div class="feature-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
-          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-        </svg>
+  <!-- PROCESSO -->
+  <section class="sec sec--photo sec--line" aria-labelledby="processo-title">
+    <div class="sec__bg" data-parallax="0.12" aria-hidden="true"><img src="https://images.unsplash.com/photo-1688826801159-e130d4890889?w=1800&q=70" alt="" loading="lazy"></div>
+    <div class="wrap">
+      <div class="sec__head">
+        <div>
+          <span class="label">Il percorso</span>
+          <h2 class="h2" id="processo-title" data-reveal>In quattro fasi,<br><em>sempre in chiaro.</em></h2>
+        </div>
       </div>
-      <div class="feature-content">
-        <h3>SEO Ottimizzato</h3>
-        <p>Metadata, structured data, velocità di caricamento. Il tuo sito scala su Google.</p>
-      </div>
+      <ol class="steps">
+        <li class="step" data-reveal><h3>Consulenza</h3><p>Capisco il tuo brand, i tuoi obiettivi e il tuo pubblico. Prima call gratuita, senza impegno.</p></li>
+        <li class="step" data-reveal="2"><h3>Design</h3><p>Disegno struttura e grafica solo per te. Le approviamo insieme prima di iniziare lo sviluppo.</p></li>
+        <li class="step" data-reveal="3"><h3>Sviluppo</h3><p>Trasformo il design in un sito o in un'app che funziona, veloce e pronta per Google.</p></li>
+        <li class="step" data-reveal="4"><h3>Lancio</h3><p>Controlli finali e pubblicazione. Ti aiuto con dominio e hosting, e resto disponibile dopo.</p></li>
+      </ol>
     </div>
+  </section>
 
-    <div class="feature-item rev d4">
-      <div class="feature-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
-          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-        </svg>
-      </div>
-      <div class="feature-content">
-        <h3>Performance</h3>
-        <p>Pagine veloci, loading istantaneo, Core Web Vitals perfetti. L'utente non aspetta.</p>
-      </div>
-    </div>
-
-    <div class="feature-item rev d5">
-      <div class="feature-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
-          <circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>
-        </svg>
-      </div>
-      <div class="feature-content">
-        <h3>Animazioni Smooth</h3>
-        <p>Scroll reveal, transizioni fluide, microinterazioni. Design che vive e respira.</p>
+  <!-- IMPEGNI -->
+  <section class="sec" style="padding-top:0" aria-label="I miei impegni">
+    <div class="wrap">
+      <div class="pledges">
+        <div class="pledge" data-reveal><b>30'</b><span>di prima call gratuita</span></div>
+        <div class="pledge" data-reveal="2"><b>24h</b><span>al massimo per la prima risposta</span></div>
+        <div class="pledge" data-reveal="3"><b>0</b><span>template preconfezionati</span></div>
+        <div class="pledge" data-reveal="4"><b>1:1</b><span>parli sempre con me</span></div>
       </div>
     </div>
+  </section>
 
-    <div class="feature-item rev d6">
-      <div class="feature-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        </svg>
+  <!-- CONTATTI -->
+  <section class="sec sec--photo night cta" id="contatti" aria-labelledby="contatti-title">
+    <div class="sec__bg" data-parallax="0.12" aria-hidden="true"><img src="https://images.unsplash.com/photo-1489875347897-49f64b51c1f8?w=1800&q=70" alt="" loading="lazy"></div>
+    <div class="wrap">
+      <span class="label">Contatti</span>
+      <h2 class="display reveal-lines" id="contatti-title">
+        <span class="line"><span>Parliamo del</span></span>
+        <span class="line"><span><em>tuo progetto.</em></span></span>
+      </h2>
+      <p class="lead" data-reveal="2">Una call gratuita di 30 minuti: capisco cosa ti serve, ti do tempi e costi, e decidi tu, senza pressioni.</p>
+      <div class="booking" data-booking="dark" data-reveal="3">
+        <div class="booking__cal"></div>
+        <div class="booking__fallback cta__actions">
+          <a href="mailto:AntonioFonte0711@gmail.com?subject=Progetto%20Digital%20-%20FONTE%20DPE" class="btn btn--solid">Scrivimi una email
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <p class="booking__alt">Preferisci scrivere? <a href="mailto:AntonioFonte0711@gmail.com?subject=Progetto%20Digital%20-%20FONTE%20DPE">Mandami una email</a></p>
       </div>
-      <div class="feature-content">
-        <h3>Sicurezza & Backup</h3>
-        <p>HTTPS, certificati SSL, backup automatici. Il tuo sito al sicuro 24/7.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== STATS ===================== -->
-<section class="stats-sec">
-  <div class="stats-row">
-    <div class="stat-item rev d1">
-      <div class="stat-val">15+</div>
-      <div class="stat-lbl">Siti consegnati</div>
-    </div>
-    <div class="stat-item rev d2">
-      <div class="stat-val">100%</div>
-      <div class="stat-lbl">Clienti soddisfatti</div>
-    </div>
-    <div class="stat-item rev d3">
-      <div class="stat-val">&lt;3w</div>
-      <div class="stat-lbl">Consegna media</div>
-    </div>
-    <div class="stat-item rev d4">
-      <div class="stat-val">&lt;24h</div>
-      <div class="stat-lbl">Prima risposta</div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== TESTIMONIALI ===================== -->
-<section class="tes-sec">
-  <div class="tes-eyebrow rev">Feedback</div>
-  <h2 class="tes-title rev d1">Cosa dicono<br><em>i clienti</em></h2>
-  <div class="tes-grid">
-    <div class="tes-card rev d1">
-      <div class="tes-stars">★★★★★</div>
-      <p class="tes-text">"Antonio ha trasformato la mia idea in un sito che rappresenta davvero il mio brand. Professionale, puntuale e con un occhio al design difficile da trovare altrove."</p>
-      <div class="tes-author">
-        <div class="tes-name">M. R.</div>
-        <div class="tes-role">Studio di Architettura, Milano</div>
+      <div class="channels">
+        <div class="channel"><span>Email</span><a href="mailto:AntonioFonte0711@gmail.com">AntonioFonte0711@gmail.com</a></div>
+        <div class="channel"><span>Instagram</span><a href="https://www.instagram.com/uccio.fonte/" target="_blank" rel="noopener">@uccio.fonte</a></div>
       </div>
     </div>
-    <div class="tes-card rev d2">
-      <div class="tes-stars">★★★★★</div>
-      <p class="tes-text">"Pensavo di dover spendere migliaia di euro per un sito decente. Con FONTE ho ottenuto qualcosa di molto meglio, a un prezzo onesto e con assistenza vera."</p>
-      <div class="tes-author">
-        <div class="tes-name">G. M.</div>
-        <div class="tes-role">Consulente Marketing, Milano</div>
-      </div>
-    </div>
-    <div class="tes-card rev d3">
-      <div class="tes-stars">★★★★★</div>
-      <p class="tes-text">"Risposta immediata, nessun tecnicismo, risultato consegnato in due settimane. Esattamente quello che cercavo in un designer."</p>
-      <div class="tes-author">
-        <div class="tes-name">L. B.</div>
-        <div class="tes-role">Fotografo Professionista</div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===================== CTA FINALE ===================== -->
-<section class="cta-banner" id="cta">
-  <div class="cta-eyebrow rev">Pronto?</div>
+</main>
 
-  <h2 class="cta-title rev d1">
-    Parliamo del<br><em>tuo progetto</em>
-  </h2>
-
-  <p class="cta-sub rev d2">
-    Una consulenza gratuita di 30 minuti. Capisco cosa ti serve, ti do una timeline, e decidi senza pressioni.
-  </p>
-
-  <div class="cta-actions rev d3">
-    <a href="https://wa.me/393473240075?text=Ciao%20Antonio!%20Vorrei%20discutere%20di%20un%20progetto%20web%20design."
-       target="_blank"
-       class="btn-gold">
-      <span>Scrivimi su WhatsApp</span>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.49 5.757L0 24l6.412-1.474A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.374l-.357-.212-3.704.851.874-3.607-.232-.371A9.818 9.818 0 1112 21.818z"/>
-      </svg>
-    </a>
-    <a href="mailto:AntonioFonte0711@gmail.com?subject=Progetto Web Design" class="btn-outline">
-      Scrivimi via Email
-    </a>
-  </div>
-</section>
-
-<!-- ===================== FOOTER ===================== -->
 <footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-col">
-      <h4>FONTE</h4>
-      <p>Web Design, Real Estate & Esperienze curate. Basato a Milano. Servizi in tutta Italia.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Navigazione</h4>
-      <div class="footer-links">
-        <a href="index.html"       class="foot-link">Home</a>
-        <a href="Digital.html"     class="foot-link">Digital</a>
-        <a href="immobiliare.html"    class="foot-link">Property</a>
-        <a href="Experience.html"  class="foot-link">Experience</a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h4>Contatti</h4>
-      <div class="footer-links">
-        <a href="https://wa.me/393473240075" target="_blank" class="foot-link">WhatsApp</a>
-        <a href="mailto:AntonioFonte0711@gmail.com" class="foot-link">Email</a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h4>Legal</h4>
-      <p style="font-size:11px; color:var(--muted);">
-        © 2025 FONTE. Tutti i diritti riservati.
-      </p>
-    </div>
+  <div class="footer__in">
+    <a href="index.html" class="brand"><img src="images/logo.jpg" alt="" class="brand__logo" width="36" height="36"><span class="brand__name">FONTE</span><span class="brand__tag">DPE</span></a>
+    <nav aria-label="Footer">
+      <a href="Digital.html">Digital</a>
+      <a href="immobiliare.html">Property</a>
+      <a href="Experience.html">Experience</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <span>&copy; <span class="js-year">2026</span> FONTE DPE — Antonio Fonte, Milano</span>
   </div>
-
-  <div class="footer-bottom">
-    <span>Crafted with care by Antonio FONTE</span>
-    <span>Milano, Italy</span>
-  </div>
+  <div class="footer__giant" aria-hidden="true">FONTE</div>
 </footer>
 
-<!-- ===================== SCRIPTS ===================== -->
-<script>
-// Navbar Scroll Behavior
-const navbar = document.getElementById('navbar');
-const navHam = document.getElementById('navHam');
-const navMobile = document.getElementById('navMobile');
-
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
-});
-
-// Mobile Menu Toggle
-navHam.addEventListener('click', () => {
-  const open = navHam.classList.toggle('open');
-  navMobile.classList.toggle('open');
-  navHam.setAttribute('aria-expanded', open);
-});
-
-// Chiudi menu mobile al click su un link
-document.querySelectorAll('.nav-mob-link').forEach(link => {
-  link.addEventListener('click', () => {
-    navHam.classList.remove('open');
-    navMobile.classList.remove('open');
-  });
-});
-
-// Scroll Reveal Animation
-const observerOptions = {
-  threshold: 0.15,
-  rootMargin: '0px 0px -80px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('on');
-      observer.unobserve(entry.target);
-    }
-  });
-}, observerOptions);
-
-document.querySelectorAll('.rev, .rev-l, .rev-r, .rev-s').forEach(el => {
-  observer.observe(el);
-});
-</script>
-
+<script src="assets/main.js"></script>
 </body>
 </html>
