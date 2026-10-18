@@ -314,6 +314,7 @@ button { font:inherit; color:inherit; background:none; border:0; cursor:pointer;
 
 /* ---------- Processo ---------- */
 .steps { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:32px; counter-reset:s; }
+.steps--5 { grid-template-columns:repeat(5, minmax(0,1fr)); gap:28px; }
 .step { padding-top:28px; border-top:1px solid var(--line-2); position:relative; }
 .step::before { counter-increment:s; content:'0' counter(s); display:block; font-family:var(--font-d); font-weight:300; font-style:italic; font-size:56px; line-height:1; color:var(--brass); margin-bottom:28px; }
 .step h3 { font-size:17px; font-weight:500; margin-bottom:10px; }
@@ -325,6 +326,7 @@ button { font:inherit; color:inherit; background:none; border:0; cursor:pointer;
 .pledge + .pledge { padding-left:24px; border-left:1px solid var(--line); }
 .pledge b { display:block; font-family:var(--font-d); font-weight:300; font-size:clamp(48px, 5vw, 76px); line-height:1; margin-bottom:14px; }
 .pledge span { font-size:13px; color:var(--ink-2); }
+.pledges__note { margin-top:16px; font-size:12px; color:var(--ink-3); }
 
 /* ---------- Citazione / chi sono ---------- */
 .about { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:clamp(48px, 8vw, 128px); align-items:start; }
