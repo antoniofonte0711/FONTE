@@ -372,6 +372,8 @@ button { font:inherit; color:inherit; background:none; border:0; cursor:pointer;
 .footer__in { max-width:var(--max); margin:0 auto; padding:40px var(--px) 32px; display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap; font-size:12px; letter-spacing:.06em; }
 .footer .brand { color:var(--night-text); }
 .footer .brand__tag { color:var(--brass-lt); }
+.footer__logo { display:block; line-height:0; }
+.footer__logo img { height:84px; width:auto; }
 .footer nav { display:flex; gap:28px; flex-wrap:wrap; }
 .footer nav a { transition:color .3s; }
 .footer nav a:hover { color:var(--night-text); }
