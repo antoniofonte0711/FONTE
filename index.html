@@ -37,7 +37,15 @@
 </head>
 <body class="dark-top">
 
-<div class="intro" aria-hidden="true"><img src="images/logo-fonte-full.png" alt="" width="258" height="84"></div>
+<style>
+.intro{display:none}
+.intro-on .intro{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:#0d1628;animation:intro-bg .9s ease 1.9s forwards}
+.intro img{width:130px;height:130px;opacity:0;transform:scale(.9);animation:intro-logo 1.8s cubic-bezier(.2,.7,.2,1) .2s forwards}
+.intro-on{overflow:hidden}
+@keyframes intro-logo{60%{opacity:1;transform:none}100%{opacity:1;transform:scale(1.05)}}
+@keyframes intro-bg{to{opacity:0;visibility:hidden}}
+</style>
+<div class="intro" aria-hidden="true"><img src="images/logo-nav.png" alt="" width="130" height="130"></div>
 <script>if(document.documentElement.classList.contains('intro-on'))setTimeout(function(){document.documentElement.classList.remove('intro-on')},2900)</script>
 
 <header class="header">
