@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prenota una call gratuita — FONTE DPE, Milano</title>
+<meta name="description" content="Prenota una call gratuita di 30 minuti con Antonio Fonte: Digital, Property o Experience. Scegli giorno e orario, ti rispondo con tempi e costi chiari.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="FONTE DPE">
+<meta property="og:title" content="Prenota una call gratuita — FONTE DPE">
+<meta property="og:description" content="30 minuti per capire cosa ti serve. Scegli tu giorno e orario.">
+<meta property="og:url" content="https://antoniofonte0711.github.io/FONTE/prenota.html">
+<meta property="og:image" content="https://antoniofonte0711.github.io/FONTE/images/og-fonte.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0d1628">
+<link rel="icon" type="image/jpeg" href="images/logo.jpg">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DQ8JLY338M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DQ8JLY338M');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://vvumumslmpmifqxqapdx.supabase.co">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Manrope:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<header class="header">
+  <div class="header__in">
+    <a href="index.html" class="brand" aria-label="FONTE DPE, home">
+      <img src="images/logo.jpg" alt="" class="brand__logo" width="36" height="36">
+      <span class="brand__name">FONTE</span><span class="brand__tag">DPE</span>
+    </a>
+    <nav class="nav" aria-label="Principale">
+      <a href="Digital.html" class="nav__link">Digital</a>
+      <a href="immobiliare.html" class="nav__link">Property</a>
+      <a href="Experience.html" class="nav__link">Experience</a>
+      <a href="prenota.html" class="btn nav__cta" aria-current="page">Prenota una call</a>
+    </nav>
+    <button class="menu-btn" aria-label="Apri menu" aria-expanded="false" aria-controls="sheet"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="sheet" id="sheet" aria-hidden="true">
+  <nav class="sheet__links" aria-label="Menu mobile">
+    <a href="Digital.html">Digital <small>01</small></a>
+    <a href="immobiliare.html">Property <small>02</small></a>
+    <a href="Experience.html">Experience <small>03</small></a>
+    <a href="index.html#contatti">Contatti <small>04</small></a>
+  </nav>
+  <div class="sheet__foot">
+    <a href="mailto:AntonioFonte0711@gmail.com?subject=Richiesta%20-%20FONTE%20DPE" class="btn btn--light">Preferisci un'email?</a>
+    <span class="label">Milano · Risposta entro 24 ore</span>
+  </div>
+</div>
+
+<main>
+  <section class="sec bk" aria-labelledby="bk-title">
+    <div class="wrap">
+      <div class="bk__head">
+        <span class="label">Prima call · gratuita · 30 minuti</span>
+        <h1 class="h2" id="bk-title">Prenota una call,<br><em>scegli tu quando.</em></h1>
+        <p class="lead">Mi racconti cosa ti serve, ti dico come lo farei, in quanto tempo e a quale prezzo. Nessun impegno.</p>
+      </div>
+
+      <ol class="bk__steps" aria-label="Passaggi">
+        <li class="is-active" data-si="1"><span>1</span>Settore</li>
+        <li data-si="2"><span>2</span>Giorno e ora</li>
+        <li data-si="3"><span>3</span>I tuoi dati</li>
+      </ol>
+
+      <!-- STEP 1: settore -->
+      <div class="bk__panel is-active" data-step="1">
+        <p class="bk__q">Di cosa vuoi parlare?</p>
+        <div class="bk__sectors">
+          <button type="button" class="bk__sector" data-settore="Digital">
+            <span class="tile__num">01</span>
+            <span class="bk__sector-name">Digital</span>
+            <span class="bk__sector-desc">Un sito o una web app su misura.</span>
+          </button>
+          <button type="button" class="bk__sector" data-settore="Property">
+            <span class="tile__num">02</span>
+            <span class="bk__sector-name">Property</span>
+            <span class="bk__sector-desc">Il tuo immobile e gli affitti brevi a Milano.</span>
+          </button>
+          <button type="button" class="bk__sector" data-settore="Experience">
+            <span class="tile__num">03</span>
+            <span class="bk__sector-name">Experience</span>
+            <span class="bk__sector-desc">Tour, cene o percorsi gastronomici.</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2: giorno e ora -->
+      <div class="bk__panel" data-step="2">
+        <button type="button" class="bk__chip" data-goto="1"><span class="bk__chip-dot"></span><span data-out="settore">—</span><small>cambia</small></button>
+        <p class="bk__q">Scegli il giorno</p>
+        <div class="bk__days" role="listbox" aria-label="Giorni disponibili"></div>
+        <p class="bk__q">Scegli l'orario <small>ogni call dura 30 minuti · ora italiana</small></p>
+        <div class="bk__slots" aria-live="polite">
+          <div class="bk__slot-group"><span class="label">Mattina</span><div class="bk__slot-row" data-fascia="mattina"></div></div>
+          <div class="bk__slot-group"><span class="label">Sera</span><div class="bk__slot-row" data-fascia="sera"></div></div>
+        </div>
+        <p class="bk__legend"><span class="bk__legend-taken">10:00</span> già prenotato</p>
+        <p class="bk__status" data-out="stato2" role="status"></p>
+        <div class="bk__nav">
+          <button type="button" class="btn" data-goto="1">Indietro</button>
+          <button type="button" class="btn btn--solid" data-next="3" disabled>Continua
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 3: dati -->
+      <div class="bk__panel" data-step="3">
+        <dl class="bk__summary">
+          <div><dt>Settore</dt><dd data-out="settore">—</dd></div>
+          <div><dt>Giorno</dt><dd data-out="giorno">—</dd></div>
+          <div><dt>Orario</dt><dd data-out="ora">—</dd></div>
+        </dl>
+        <form class="bk__form" novalidate>
+          <label class="bk__field"><span>Nome e cognome</span><input name="nome" autocomplete="name" required minlength="2" maxlength="80"></label>
+          <label class="bk__field"><span>Email</span><input name="email" type="email" autocomplete="email" required maxlength="160"></label>
+          <label class="bk__field"><span>Telefono <small>facoltativo</small></span><input name="telefono" type="tel" autocomplete="tel" maxlength="30"></label>
+          <label class="bk__field bk__field--full"><span>Di cosa vuoi parlare?</span><textarea name="messaggio" rows="4" required minlength="5" maxlength="2000" placeholder="Due righe sul progetto, l'immobile o la serata che hai in mente."></textarea></label>
+          <label class="bk__hp" aria-hidden="true">Sito web<input name="sito" tabindex="-1" autocomplete="off"></label>
+          <p class="bk__note bk__field--full">Uso questi dati solo per organizzare la call e risponderti. Non li cedo a nessuno.</p>
+          <p class="bk__status bk__field--full" data-out="stato3" role="alert"></p>
+          <div class="bk__nav bk__field--full">
+            <button type="button" class="btn" data-goto="2">Indietro</button>
+            <button type="submit" class="btn btn--solid">Conferma la call
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- FATTO -->
+      <div class="bk__panel bk__done" data-step="4" tabindex="-1">
+        <span class="bk__done-mark" aria-hidden="true">✓</span>
+        <h2 class="h3">Call <em>prenotata.</em></h2>
+        <p class="lead">Ci sentiamo <strong data-out="quando"></strong>. Ti scrivo entro 24 ore all'indirizzo che mi hai lasciato con il link della call.</p>
+        <div class="bk__nav">
+          <a class="btn" href="index.html">Torna al sito</a>
+          <a class="btn btn--solid" data-out="gcal" href="#" target="_blank" rel="noopener">Aggiungi a Google Calendar</a>
+        </div>
+      </div>
+
+      <p class="bk__alt">Preferisci scrivere? <a href="mailto:AntonioFonte0711@gmail.com?subject=Richiesta%20-%20FONTE%20DPE">AntonioFonte0711@gmail.com</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer__in">
+    <a href="index.html" class="footer__logo"><img src="images/logo-fonte-full.png" alt="FONTE — Digital Property Experience" width="258" height="84"></a>
+    <nav aria-label="Footer">
+      <a href="Digital.html">Digital</a>
+      <a href="immobiliare.html">Property</a>
+      <a href="Experience.html">Experience</a>
+      <a href="index.html#contatti">Contatti</a>
+    </nav>
+    <span>&copy; <span class="js-year">2026</span> FONTE DPE — Antonio Fonte, Milano</span>
+  </div>
+  <div class="footer__giant" aria-hidden="true">FONTE</div>
+</footer>
+
+<script src="assets/main.js"></script>
+<script src="assets/prenota.js"></script>
+</body>
+</html>

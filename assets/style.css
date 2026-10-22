@@ -570,3 +570,11 @@ button { font:inherit; color:inherit; background:none; border:0; cursor:pointer;
   .bk__summary { grid-template-columns:minmax(0,1fr); gap:14px; }
   .bk__nav { flex-direction:column-reverse; }
 }
+
+/* ---------- Intro con logo (home, una volta a sessione) ---------- */
+.intro { display:none; }
+.intro-on .intro { position:fixed; inset:0; z-index:9999; display:grid; place-items:center; background:var(--night); animation:intro-bg .9s ease 1.9s forwards; }
+.intro img { width:min(60vw, 320px); height:auto; opacity:0; transform:scale(.94); animation:intro-logo 1.8s var(--ease) .2s forwards; }
+.intro-on { overflow:hidden; }
+@keyframes intro-logo { 60% { opacity:1; transform:none; } 100% { opacity:1; transform:scale(1.04); } }
+@keyframes intro-bg { to { opacity:0; visibility:hidden; } }
