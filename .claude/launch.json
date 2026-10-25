@@ -6,6 +6,18 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8743"],
       "port": 8743
+    },
+    {
+      "name": "static-site-node",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["C:\\Users\\maipa\\AppData\\Local\\Temp\\claude\\C--Users-maipa-Documents-FONTE\\fa58d92d-b7c1-4fe1-b27f-ab8d6f1ff9ca\\scratchpad\\serve.js", "C:\\Users\\maipa\\Documents\\FONTE", "8744"],
+      "port": 8744
+    },
+    {
+      "name": "static-site-prenota",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["C:\\Users\\maipa\\AppData\\Local\\Temp\\claude\\C--Users-maipa-Documents-FONTE\\b836f621-5918-45ce-bd1c-9c0b3a5a6ceb\\scratchpad\\serve.js", "C:\\Users\\maipa\\Documents\\FONTE", "8745"],
+      "port": 8745
     }
   ]
 }
